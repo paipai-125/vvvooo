@@ -1,0 +1,23 @@
+# ============================================================
+# Video-OPD 路径配置（模板）
+# ------------------------------------------------------------
+# 使用方式:
+#   1) cp configs/paths.example.yaml configs/paths.yaml
+#   2) 编辑 configs/paths.yaml 把 <FILL_ME> 改成你机器上的真实绝对路径
+#   3) 完事，所有 Python / shell 脚本都会自动读这里
+#
+# 真实的 paths.yaml 已在 .gitignore 里，不会被 git 跟踪。
+# ============================================================
+
+# 数据总根目录：数据集 + 模型 + 输出 全部放它下面
+data_root: <FILL_ME>/video_opd_data
+
+# 模型权重根目录（一般就是 ${data_root}/models）
+model_root: <FILL_ME>/video_opd_data/models
+
+# 可选：单独覆盖某个模型路径（不写就用 ${model_root}/<key>）
+# 用途举例: SAM3 已经在公共目录有副本，不想复制只想软链外部位置时
+# overrides:
+#   sam3: /apdcephfs/aigc/group_2/user_sleepfeng/sam3
+#   qwen3_vl_4b: /some/shared/Qwen3-VL-4B-Instruct
+overrides: {}

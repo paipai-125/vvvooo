@@ -1,0 +1,165 @@
+[Init] world_size=8 rank=0 local_rank=0 dtype=torch.bfloat16
+[Init] model_path=/mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/video_opd_data/Qwen3-VL-4B-Instruct
+[Init] max_length=32768 max_seg_len=256 max_latent_steps=32
+[Init] lambda: trans=1.0 ans=1.0 aux=1.0 think_end=1.0
+[Init] 加载 Student 模型...
+Loading weights: 100%|██████████████████████████████████████████████████████████████████████████████████████████████| 713/713 [00:00<00:00, 9532.11it/s]
+[Init] 加载 Translator 模型（解冻模式，参与训练）...
+Loading weights: 100%|██████████████████████████████████████████████████████████████████████████████████████████████| 713/713 [00:00<00:00, 9236.50it/s]
+[Init] Translator 已解冻（train mode, requires_grad=True）
+[Init] LatentExitHead 创建完成 (hidden_size=2560)
+[Dataset] 38852 samples: /mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/video_opd_data/outputs/stage1_sft/stage1_sft_template_all.jsonl
+[Init] dataset=38852 steps/epoch=2429 total=2429
+[2026-06-02 02:49:57,168] [WARNING] [lr_schedules.py:690:get_lr] Attempting to get learning rate from scheduler before it has started
+[Epoch 1] 开始加载数据（首个 batch 需解码视频，请耐心等待）...
+Writing model shards: 100%|███████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:10<00:00, 10.69s/it]
+Writing model shards: 100%|███████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:10<00:00, 10.13s/it]
+[Save] checkpoint-500 已保存到 /mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/video_opd_data/outputs/checkpoints/stage1_sft_v5_latent/checkpoint-500
+Writing model shards: 100%|███████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:13<00:00, 13.34s/it]
+[Save] checkpoint-1000 已保存到 /mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/video_opd_data/outputs/checkpoints/stage1_sft_v5_latent/checkpoint-1000
+Writing model shards: 100%|███████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:12<00:00, 12.33s/it]
+[Save] checkpoint-1500 已保存到 /mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/video_opd_data/outputs/checkpoints/stage1_sft_v5_latent/checkpoint-1500
+Writing model shards: 100%|███████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:10<00:00, 10.18s/it]
+[Save] checkpoint-2000 已保存到 /mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/video_opd_data/outputs/checkpoints/stage1_sft_v5_latent/checkpoint-2000
+Writing model shards: 100%|███████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:10<00:00, 10.88s/it]
+[Save] checkpoint-2500 已保存到 /mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/video_opd_data/outputs/checkpoints/stage1_sft_v5_latent/checkpoint-2500
+Epoch 1/1:  71%|██████▍  | 3469/4857 [8:47:38<3:31:07,  9.13s/it, ans=0.5253, aux=0.0000, lr=5.94e-06, step=3460, te=0.0000, total=0.8351, trans=0.3097]
+[Save] checkpoint-3000 已保存到 /mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/video_opd_data/outputs/checkpoints/stage1_sft_v5_latent/checkpoint-3000
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/video_opd_code/training/stage1_sft_v5.py", line 1063, in <module>
+    main()
+  File "/mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/video_opd_code/training/stage1_sft_v5.py", line 940, in main
+    losses = train_one_sample(
+             ^^^^^^^^^^^^^^^^^
+  File "/mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/video_opd_code/training/stage1_sft_v5.py", line 670, in train_one_sample
+    answer_logits = latent_engine.phase3_forward(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/video_opd_code/training/latent_forward.py", line 363, in phase3_forward
+    backbone_out = self.backbone(
+                   ^^^^^^^^^^^^^^
+  File "/mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/root/miniconda3/envs/video_opd/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/root/miniconda3/envs/video_opd/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/root/miniconda3/envs/video_opd/lib/python3.11/site-packages/transformers/utils/generic.py", line 903, in wrapper
+    output = func(self, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/root/miniconda3/envs/video_opd/lib/python3.11/site-packages/transformers/models/qwen3_vl/modeling_qwen3_vl.py", line 1267, in forward
+    outputs = self.language_model(
+              ^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/root/miniconda3/envs/video_opd/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/root/miniconda3/envs/video_opd/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/root/miniconda3/envs/video_opd/lib/python3.11/site-packages/transformers/utils/generic.py", line 1032, in wrapper
+    output = func(self, *args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/root/miniconda3/envs/video_opd/lib/python3.11/site-packages/transformers/utils/output_capturing.py", line 252, in wrapper
+    outputs = func(self, *args, **kwargs)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/root/miniconda3/envs/video_opd/lib/python3.11/site-packages/transformers/models/qwen3_vl/modeling_qwen3_vl.py", line 839, in forward
+    layer_outputs = decoder_layer(
+                    ^^^^^^^^^^^^^^
+  File "/mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/root/miniconda3/envs/video_opd/lib/python3.11/site-packages/transformers/modeling_layers.py", line 93, in __call__
+    return super().__call__(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/root/miniconda3/envs/video_opd/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/root/miniconda3/envs/video_opd/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/root/miniconda3/envs/video_opd/lib/python3.11/site-packages/transformers/models/qwen3_vl/modeling_qwen3_vl.py", line 568, in forward
+    hidden_states = self.mlp(hidden_states)
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/root/miniconda3/envs/video_opd/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/root/miniconda3/envs/video_opd/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/root/miniconda3/envs/video_opd/lib/python3.11/site-packages/transformers/models/qwen3_vl/modeling_qwen3_vl.py", line 526, in forward
+    down_proj = self.down_proj(self.act_fn(self.gate_proj(x)) * self.up_proj(x))
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/root/miniconda3/envs/video_opd/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/root/miniconda3/envs/video_opd/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1743, in _call_impl
+    def _call_impl(self, *args, **kwargs):
+
+KeyboardInterrupt
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "<frozen runpy>", line 198, in _run_module_as_main
+[rank0]:   File "<frozen runpy>", line 88, in _run_code
+[rank0]:   File "/mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/video_opd_code/training/stage1_sft_v5.py", line 1063, in <module>
+[rank0]:     main()
+[rank0]:   File "/mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/video_opd_code/training/stage1_sft_v5.py", line 940, in main
+[rank0]:     losses = train_one_sample(
+[rank0]:              ^^^^^^^^^^^^^^^^^
+[rank0]:   File "/mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/video_opd_code/training/stage1_sft_v5.py", line 670, in train_one_sample
+[rank0]:     answer_logits = latent_engine.phase3_forward(
+[rank0]:                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/video_opd_code/training/latent_forward.py", line 363, in phase3_forward
+[rank0]:     backbone_out = self.backbone(
+[rank0]:                    ^^^^^^^^^^^^^^
+[rank0]:   File "/mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/root/miniconda3/envs/video_opd/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+[rank0]:     return self._call_impl(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/root/miniconda3/envs/video_opd/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+[rank0]:     return forward_call(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/root/miniconda3/envs/video_opd/lib/python3.11/site-packages/transformers/utils/generic.py", line 903, in wrapper
+[rank0]:     output = func(self, *args, **kwargs)
+[rank0]:              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/root/miniconda3/envs/video_opd/lib/python3.11/site-packages/transformers/models/qwen3_vl/modeling_qwen3_vl.py", line 1267, in forward
+[rank0]:     outputs = self.language_model(
+[rank0]:               ^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/root/miniconda3/envs/video_opd/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+[rank0]:     return self._call_impl(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/root/miniconda3/envs/video_opd/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+[rank0]:     return forward_call(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/root/miniconda3/envs/video_opd/lib/python3.11/site-packages/transformers/utils/generic.py", line 1032, in wrapper
+[rank0]:     output = func(self, *args, **kwargs)
+[rank0]:              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/root/miniconda3/envs/video_opd/lib/python3.11/site-packages/transformers/utils/output_capturing.py", line 252, in wrapper
+[rank0]:     outputs = func(self, *args, **kwargs)
+[rank0]:               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/root/miniconda3/envs/video_opd/lib/python3.11/site-packages/transformers/models/qwen3_vl/modeling_qwen3_vl.py", line 839, in forward
+[rank0]:     layer_outputs = decoder_layer(
+[rank0]:                     ^^^^^^^^^^^^^^
+[rank0]:   File "/mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/root/miniconda3/envs/video_opd/lib/python3.11/site-packages/transformers/modeling_layers.py", line 93, in __call__
+[rank0]:     return super().__call__(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/root/miniconda3/envs/video_opd/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+[rank0]:     return self._call_impl(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/root/miniconda3/envs/video_opd/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+[rank0]:     return forward_call(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/root/miniconda3/envs/video_opd/lib/python3.11/site-packages/transformers/models/qwen3_vl/modeling_qwen3_vl.py", line 568, in forward
+[rank0]:     hidden_states = self.mlp(hidden_states)
+[rank0]:                     ^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/root/miniconda3/envs/video_opd/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+[rank0]:     return self._call_impl(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/root/miniconda3/envs/video_opd/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1750, in _call_impl
+[rank0]:     return forward_call(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/root/miniconda3/envs/video_opd/lib/python3.11/site-packages/transformers/models/qwen3_vl/modeling_qwen3_vl.py", line 526, in forward
+[rank0]:     down_proj = self.down_proj(self.act_fn(self.gate_proj(x)) * self.up_proj(x))
+[rank0]:                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/root/miniconda3/envs/video_opd/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1739, in _wrapped_call_impl
+[rank0]:     return self._call_impl(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/root/miniconda3/envs/video_opd/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1743, in _call_impl
+[rank0]:     def _call_impl(self, *args, **kwargs):
+
+[rank0]: KeyboardInterrupt

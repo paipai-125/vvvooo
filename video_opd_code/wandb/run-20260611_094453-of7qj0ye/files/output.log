@@ -1,0 +1,25 @@
+[Init] world_size=2 rank=0 local_rank=0
+[Init] Group 0: Student=GPU0 Translator=GPU1 Teacher_R=GPU2 Teacher_P=GPU3
+[Init] 加载 Student 模型...
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/video_opd_code/training/stage1_opd.py", line 1088, in <module>
+    main()
+  File "/mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/video_opd_code/training/stage1_opd.py", line 865, in main
+    processor, student_model = load_student_from_ckpt(args.student_ckpt, dtype)
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/video_opd_code/training/stage1_opd.py", line 727, in load_student_from_ckpt
+    raise FileNotFoundError(f"Student checkpoint 不存在: {student_dir}")
+FileNotFoundError: Student checkpoint 不存在: /mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/video_opd_data/outputs/checkpoints/stage1_sft_v5_latent/checkpoint-7500/student
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "<frozen runpy>", line 198, in _run_module_as_main
+[rank0]:   File "<frozen runpy>", line 88, in _run_code
+[rank0]:   File "/mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/video_opd_code/training/stage1_opd.py", line 1088, in <module>
+[rank0]:     main()
+[rank0]:   File "/mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/video_opd_code/training/stage1_opd.py", line 865, in main
+[rank0]:     processor, student_model = load_student_from_ckpt(args.student_ckpt, dtype)
+[rank0]:                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/video_opd_code/training/stage1_opd.py", line 727, in load_student_from_ckpt
+[rank0]:     raise FileNotFoundError(f"Student checkpoint 不存在: {student_dir}")
+[rank0]: FileNotFoundError: Student checkpoint 不存在: /mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/video_opd_data/outputs/checkpoints/stage1_sft_v5_latent/checkpoint-7500/student

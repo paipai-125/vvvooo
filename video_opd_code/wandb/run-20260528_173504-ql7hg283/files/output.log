@@ -1,0 +1,11 @@
+[wandb] 已启用: project=video-opd-stage1-sft run=student-full mode=online
+[Init] world_size=8 rank=0 local_rank=0 dtype=torch.bfloat16
+[Init] model_path=/mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/video_opd_data/Qwen3-VL-4B-Instruct
+[Init] role=student
+Loading weights: 100%|██████████| 713/713 [00:00<00:00, 8518.91it/s]
+[Init] video_processor: fps=1.0, max_frames=64
+[Init] 学生模式: 创建冻结 Decoder LM head (Coconut-style)
+[Init] Decoder LM head: Linear(in_features=2560, out_features=151936, bias=False)
+[Init] latent_warmup_steps=100 (前 N 步标准 CE，之后潜空间)
+[Dataset] 38852 条 (role=student): /mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/video_opd_data/outputs/stage1_sft/stage1_sft_template_all.jsonl
+[Init] dataset=38852 steps/epoch=2429 total_steps=2429

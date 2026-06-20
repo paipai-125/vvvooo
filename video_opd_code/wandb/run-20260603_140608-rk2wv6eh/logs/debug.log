@@ -1,0 +1,12 @@
+2026-06-03 14:06:08,597 INFO    MainThread:3589210 [wandb_setup.py:_flush():81] Current SDK version is 0.27.0
+2026-06-03 14:06:08,597 INFO    MainThread:3589210 [wandb_setup.py:_flush():81] Configure stats pid to 3589210
+2026-06-03 14:06:08,597 INFO    MainThread:3589210 [wandb_setup.py:_flush():81] Loading settings from environment variables
+2026-06-03 14:06:08,598 INFO    MainThread:3589210 [wandb_init.py:setup_run_log_directory():723] Logging user logs to /mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/video_opd_code/wandb/run-20260603_140608-rk2wv6eh/logs/debug.log
+2026-06-03 14:06:08,598 INFO    MainThread:3589210 [wandb_init.py:setup_run_log_directory():724] Logging internal logs to /mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/video_opd_code/wandb/run-20260603_140608-rk2wv6eh/logs/debug-internal.log
+2026-06-03 14:06:08,598 INFO    MainThread:3589210 [wandb_init.py:init():851] calling init triggers
+2026-06-03 14:06:08,598 INFO    MainThread:3589210 [wandb_init.py:init():856] wandb.init called with sweep_config: {}
+config: {'role': 'teacher_p', 'train_jsonl': '/mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/video_opd_data/outputs/stage1_sft/stage1_sft_teacher_p.jsonl', 'output_dir': '/mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/video_opd_data/outputs/checkpoints/stage1_sft_teacher_p', 'model_path': '/mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/video_opd_data/Qwen3-VL-4B-Instruct', 'epochs': 1, 'lr': 1e-05, 'max_length': 32768, 'max_frames': 64, 'fps': 1.0, 'grad_accum': 2, 'logging_steps': 1, 'save_steps': 100, 'max_samples': 0, 'num_workers': 2, 'gradient_checkpointing': True, 'wandb_project': 'video-opd-teacher-sft', 'wandb_run_name': 'teacher_p-sft', 'inference_only': False, 'inference_ckpt': None, '_wandb': {}}
+2026-06-03 14:06:08,598 INFO    MainThread:3589210 [wandb_init.py:init():899] starting backend
+2026-06-03 14:06:09,870 INFO    MainThread:3589210 [wandb_init.py:init():914] sending inform_init request
+2026-06-03 14:06:10,560 INFO    MainThread:3589210 [wandb_init.py:init():919] backend started and connected
+2026-06-03 14:06:10,562 INFO    MainThread:3589210 [wandb_init.py:init():989] updated telemetry

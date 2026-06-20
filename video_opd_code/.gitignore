@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+.pytest_cache/
+
+# 环境
+.venv/
+venv/
+
+# IDE
+.idea/
+.vscode/
+
+# 用户私有路径配置（每台机器不同，禁止提交）
+configs/paths.yaml
+
+# 训练输出（即便误把 outputs 软链到代码下也不要进 git）
+outputs/
+*.ckpt
+*.pt

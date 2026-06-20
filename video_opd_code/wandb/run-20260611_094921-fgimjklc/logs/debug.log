@@ -1,0 +1,39 @@
+2026-06-11 09:49:21,279 INFO    MainThread:1410 [wandb_setup.py:_flush():81] Current SDK version is 0.27.0
+2026-06-11 09:49:21,279 INFO    MainThread:1410 [wandb_setup.py:_flush():81] Configure stats pid to 1410
+2026-06-11 09:49:21,279 INFO    MainThread:1410 [wandb_setup.py:_flush():81] Loading settings from environment variables
+2026-06-11 09:49:21,280 INFO    MainThread:1410 [wandb_init.py:setup_run_log_directory():723] Logging user logs to /mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/video_opd_code/wandb/run-20260611_094921-fgimjklc/logs/debug.log
+2026-06-11 09:49:21,280 INFO    MainThread:1410 [wandb_init.py:setup_run_log_directory():724] Logging internal logs to /mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/video_opd_code/wandb/run-20260611_094921-fgimjklc/logs/debug-internal.log
+2026-06-11 09:49:21,280 INFO    MainThread:1410 [wandb_init.py:init():851] calling init triggers
+2026-06-11 09:49:21,280 INFO    MainThread:1410 [wandb_init.py:init():856] wandb.init called with sweep_config: {}
+config: {'train_jsonl': '/mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/video_opd_data/outputs/stage1_sft/stage1_sft_template_all.jsonl', 'output_dir': '/mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/video_opd_data/outputs/checkpoints/stage1_opd', 'student_ckpt': '/mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/video_opd_data/outputs/checkpoints/stage1_sft_v5_latent/checkpoint-9000', 'teacher_r_ckpt': '/mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/video_opd_data/outputs/checkpoints/stage1_sft_teacher_r/final', 'teacher_p_ckpt': '/mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/video_opd_data/outputs/checkpoints/stage1_sft_teacher_p/final', 'model_path': '', 'num_train_epochs': 10, 'gradient_accumulation_steps': 1, 'student_lr': 5e-06, 'weight_decay': 0.01, 'warmup_ratio': 0.03, 'max_length': 32768, 'max_frames': 64, 'fps': 1.0, 'video_max_pixels': 0, 'seed': 42, 'logging_steps': 10, 'save_steps': 500, 'save_total_limit': 3, 'bf16': True, 'max_seg_len': 256, 'max_latent_steps': 32, 'max_decode_len': 256, 'lambda_kl': 1.0, 'lambda_ans': 1.0, 'lambda_aux': 0.1, 'lambda_think_end': 1.0, 'temperature': 2.0, 'wandb_project': 'video-opd-opd', 'wandb_run_name': 'opd-overfit', 'wandb_mode': 'online', 'num_workers': 2, 'max_samples': 10, 'teacher_r_max_length': 8192, 'teacher_p_max_length': 32768, '_wandb': {}}
+2026-06-11 09:49:21,280 INFO    MainThread:1410 [wandb_init.py:init():899] starting backend
+2026-06-11 09:49:21,993 INFO    MainThread:1410 [wandb_init.py:init():914] sending inform_init request
+2026-06-11 09:49:22,796 INFO    MainThread:1410 [wandb_init.py:init():919] backend started and connected
+2026-06-11 09:49:22,797 INFO    MainThread:1410 [wandb_init.py:init():989] updated telemetry
+2026-06-11 09:49:22,836 INFO    MainThread:1410 [wandb_init.py:init():1012] communicating run to backend with 90.0 second timeout
+2026-06-11 09:49:23,189 INFO    MainThread:1410 [wandb_init.py:init():1057] starting run threads in backend
+2026-06-11 09:49:23,523 INFO    MainThread:1410 [wandb_run.py:_console_start():2509] atexit reg
+2026-06-11 09:49:23,523 INFO    MainThread:1410 [wandb_run.py:_redirect():2359] redirect: wrap_raw
+2026-06-11 09:49:23,523 INFO    MainThread:1410 [wandb_run.py:_redirect():2428] Wrapping output streams.
+2026-06-11 09:49:23,523 INFO    MainThread:1410 [wandb_run.py:_redirect():2451] Redirects installed.
+2026-06-11 09:49:23,552 INFO    MainThread:1410 [wandb_init.py:init():1095] run started, returning control to user process
+2026-06-11 10:00:33,821 INFO    wandb-AsyncioManager-main:1410 [service_client.py:_forward_responses():122] Reached EOF.
+2026-06-11 10:00:33,821 INFO    wandb-AsyncioManager-main:1410 [mailbox.py:close():154] Closing mailbox, abandoning 1 handles.
+2026-06-11 10:00:33,905 ERROR   wandb-AsyncioManager-main:1410 [asyncio_manager.py:fn_wrap_exceptions():184] Uncaught exception in run_soon callback.
+Traceback (most recent call last):
+  File "/mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/root/miniconda3/envs/video_opd/lib/python3.11/site-packages/wandb/sdk/lib/asyncio_manager.py", line 182, in fn_wrap_exceptions
+    await fn()
+  File "/mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/root/miniconda3/envs/video_opd/lib/python3.11/site-packages/wandb/sdk/lib/run_messages.py", line 105, in loop
+    await self._poll_and_print(timeout=None)
+  File "/mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/root/miniconda3/envs/video_opd/lib/python3.11/site-packages/wandb/sdk/lib/run_messages.py", line 133, in _poll_and_print
+    handle = await self._interface.deliver_async(request)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/root/miniconda3/envs/video_opd/lib/python3.11/site-packages/wandb/sdk/interface/interface_sock.py", line 58, in deliver_async
+    handle = await self._client.deliver(request)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/root/miniconda3/envs/video_opd/lib/python3.11/site-packages/wandb/sdk/lib/service/service_client.py", line 57, in deliver
+    handle = self._mailbox.require_response(request)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/root/miniconda3/envs/video_opd/lib/python3.11/site-packages/wandb/sdk/mailbox/mailbox.py", line 89, in require_response
+    raise MailboxClosedError()
+wandb.sdk.mailbox.mailbox.MailboxClosedError

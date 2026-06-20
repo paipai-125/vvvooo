@@ -1,0 +1,60 @@
+[Init] world_size=4 rank=0 local_rank=0 dtype=torch.bfloat16
+[Init] model_path=/mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/video_opd_data/Qwen3-VL-4B-Instruct
+[Init] max_length=32768 max_seg_len=256 max_latent_steps=32
+[Init] lambda: trans=1.0 ans=1.0 aux=1.0 think_end=1.0
+[Init] 加载 Student 模型...
+Loading weights: 100%|██████████████████████████████████████████████████████████████████████████████████████████████| 713/713 [00:00<00:00, 9689.47it/s]
+[Init] video_processor: size.longest_edge=262144 (控制视频 token 预算)
+[Init] 加载 Translator 模型（解冻模式，参与训练）...
+Loading weights: 100%|██████████████████████████████████████████████████████████████████████████████████████████████| 713/713 [00:00<00:00, 8862.77it/s]
+[Init] Translator 已解冻（train mode, requires_grad=True）
+[Init] LatentExitHead 创建完成 (hidden_size=2560)
+[Dataset] 38852 samples: /mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/video_opd_data/outputs/stage1_sft/stage1_sft_template_all.jsonl
+[Init] dataset=38852 steps/epoch=9713 total=9713
+[Init] 设备分配: Student → cuda:0, Translator → cuda:1
+[Init] Student + exit_head → cuda:0
+[Init] Translator → cuda:1
+[Epoch 1] 开始加载数据（首个 batch 需解码视频，请耐心等待）...
+Writing model shards: 100%|███████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:11<00:00, 11.19s/it]
+Writing model shards: 100%|███████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:11<00:00, 11.77s/it]
+[Save] checkpoint-500 已保存到 /mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/video_opd_data/outputs/checkpoints/stage1_sft_v5_latent/checkpoint-500
+Writing model shards: 100%|███████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:11<00:00, 11.39s/it]
+[Save] checkpoint-1000 已保存到 /mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/video_opd_data/outputs/checkpoints/stage1_sft_v5_latent/checkpoint-1000
+Writing model shards: 100%|███████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:11<00:00, 11.31s/it]
+[Save] checkpoint-1500 已保存到 /mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/video_opd_data/outputs/checkpoints/stage1_sft_v5_latent/checkpoint-1500
+Writing model shards: 100%|███████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:11<00:00, 11.27s/it]
+[Save] checkpoint-2000 已保存到 /mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/video_opd_data/outputs/checkpoints/stage1_sft_v5_latent/checkpoint-2000
+Writing model shards: 100%|███████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:10<00:00, 10.92s/it]
+[Save] checkpoint-2500 已保存到 /mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/video_opd_data/outputs/checkpoints/stage1_sft_v5_latent/checkpoint-2500
+Writing model shards: 100%|███████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:10<00:00, 10.93s/it]
+[Save] checkpoint-3000 已保存到 /mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/video_opd_data/outputs/checkpoints/stage1_sft_v5_latent/checkpoint-3000
+Writing model shards: 100%|███████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:12<00:00, 12.12s/it]
+[Save] checkpoint-3500 已保存到 /mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/video_opd_data/outputs/checkpoints/stage1_sft_v5_latent/checkpoint-3500
+Writing model shards: 100%|███████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:11<00:00, 11.34s/it]
+[Save] checkpoint-4000 已保存到 /mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/video_opd_data/outputs/checkpoints/stage1_sft_v5_latent/checkpoint-4000
+Writing model shards: 100%|███████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:11<00:00, 11.44s/it]
+[Save] checkpoint-4500 已保存到 /mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/video_opd_data/outputs/checkpoints/stage1_sft_v5_latent/checkpoint-4500
+Writing model shards: 100%|███████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:10<00:00, 10.77s/it]
+[Save] checkpoint-5000 已保存到 /mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/video_opd_data/outputs/checkpoints/stage1_sft_v5_latent/checkpoint-5000
+Writing model shards: 100%|███████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:10<00:00, 10.80s/it]
+[Save] checkpoint-5500 已保存到 /mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/video_opd_data/outputs/checkpoints/stage1_sft_v5_latent/checkpoint-5500
+Writing model shards: 100%|███████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:10<00:00, 10.56s/it]
+[Save] checkpoint-6000 已保存到 /mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/video_opd_data/outputs/checkpoints/stage1_sft_v5_latent/checkpoint-6000
+Writing model shards: 100%|███████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:11<00:00, 11.84s/it]
+[Save] checkpoint-6500 已保存到 /mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/video_opd_data/outputs/checkpoints/stage1_sft_v5_latent/checkpoint-6500
+Writing model shards: 100%|███████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:11<00:00, 11.87s/it]
+[Save] checkpoint-7000 已保存到 /mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/video_opd_data/outputs/checkpoints/stage1_sft_v5_latent/checkpoint-7000
+Writing model shards: 100%|███████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:13<00:00, 13.40s/it]
+[Save] checkpoint-7500 已保存到 /mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/video_opd_data/outputs/checkpoints/stage1_sft_v5_latent/checkpoint-7500
+Writing model shards: 100%|███████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:11<00:00, 11.10s/it]
+[Save] checkpoint-8000 已保存到 /mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/video_opd_data/outputs/checkpoints/stage1_sft_v5_latent/checkpoint-8000
+Writing model shards: 100%|███████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:10<00:00, 10.37s/it]
+[Save] checkpoint-8500 已保存到 /mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/video_opd_data/outputs/checkpoints/stage1_sft_v5_latent/checkpoint-8500
+Writing model shards: 100%|███████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:11<00:00, 11.95s/it]
+[Save] checkpoint-9000 已保存到 /mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/video_opd_data/outputs/checkpoints/stage1_sft_v5_latent/checkpoint-9000
+Epoch 1/1: 100%|███████████| 9713/9713 [2:41:00<00:00,  1.01it/s, ans=0.2673, aux=0.0000, lr=5.00e-12, step=9710, te=0.0001, total=0.3460, trans=0.0787]
+[Save] checkpoint-9500 已保存到 /mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/video_opd_data/outputs/checkpoints/stage1_sft_v5_latent/checkpoint-9500
+[Save] 保存 final checkpoint ...
+Writing model shards: 100%|███████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:12<00:00, 12.11s/it]
+[Save] checkpoint-9713 已保存到 /mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/video_opd_data/outputs/checkpoints/stage1_sft_v5_latent/checkpoint-9713
+[Done] Stage1-SFT-v5 训练结束，共 9713 步

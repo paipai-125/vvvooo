@@ -1,0 +1,54 @@
+# ===== 核心深度学习栈 =====
+# CUDA 12.4 / Python 3.11
+# PyTorch 请按 CUDA 版本走官方源安装，setup_env.sh 中处理：
+#   pip install torch==2.4.1 torchvision==0.19.1 --index-url https://download.pytorch.org/whl/cu124
+# 这里只列出与 PyTorch 同源安装无关的依赖。
+
+# ===== Transformers 系 =====
+# 需 >=4.57.0：同时支持 Qwen3-VL（Qwen3VLForConditionalGeneration）与 SAM 3
+# (Sam3Model / Sam3VideoModel / Sam3VideoProcessor)。
+transformers>=4.57.0
+accelerate>=1.0.0
+deepspeed>=0.15.0
+peft>=0.13.0
+safetensors>=0.4.5
+tokenizers>=0.20.0
+sentencepiece>=0.2.0
+
+# ===== 视频/图像处理 =====
+opencv-python-headless>=4.9.0.80
+Pillow>=10.3.0
+numpy>=1.26.0
+imageio>=2.34.0
+imageio-ffmpeg>=0.5.1
+av>=12.3.0
+decord>=0.6.0
+
+# ===== 视觉模型工具（pipeline用） =====
+# Grounding-DINO 通过 transformers 加载（IDEA-Research/grounding-dino-base）
+# Depth Anything V2 通过 transformers 加载（depth-anything/Depth-Anything-V2-Large-hf）
+# SAM 3 通过 transformers >=4.57 内置加载 (Sam3VideoModel / Sam3VideoProcessor)，
+#   仅需下载 facebook/sam3 权重到 <model_root>/sam3/（路径见 configs/paths.yaml），无需 pip install sam3。
+huggingface_hub>=0.25.0
+
+# ===== 训练工具 =====
+einops>=0.8.0
+tqdm>=4.66.0
+datasets>=3.0.0
+
+# ===== 通用 =====
+PyYAML>=6.0.1
+jsonlines>=4.0.0
+requests>=2.32.0
+packaging>=24.0
+psutil>=5.9.0
+
+# ===== Qwen3-32B 文本 LLM 推理（来源 C 数据增强；可选） =====
+# 警告：vllm 高版本会强制把 torch 升级为 cu128 wheel，与较旧 NVIDIA driver
+# (driver < 12.6) 不兼容。因此 vllm **不在 requirements.txt 中安装**，
+# 仅在确实需要跑 stage1_sft_llm_augment.py 时，由 setup_env.sh 末尾按需安装：
+#     pip install --no-deps "vllm==0.6.3"
+# 或者改用 transformers 直接加载 Qwen3-32B（默认回退路径，已在代码中实现）。
+
+# ===== 测试 =====
+pytest>=8.3.0

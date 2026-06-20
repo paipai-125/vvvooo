@@ -1,0 +1,150 @@
+{
+  "os": "Linux-5.4.241-1-tlinux4-0017.7-x86_64-with-glibc2.28",
+  "python": "CPython 3.11.15",
+  "startedAt": "2026-06-11T02:20:27.152703Z",
+  "args": [
+    "--train_jsonl",
+    "/mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/video_opd_data/outputs/stage1_sft/stage1_sft_template_all.jsonl",
+    "--output_dir",
+    "/mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/video_opd_data/outputs/checkpoints/stage1_opd",
+    "--student_ckpt",
+    "/mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/video_opd_data/outputs/checkpoints/stage1_sft_v5_latent/checkpoint-9000",
+    "--teacher_r_ckpt",
+    "/mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/video_opd_data/outputs/checkpoints/stage1_sft_teacher_r/final",
+    "--teacher_p_ckpt",
+    "/mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/video_opd_data/outputs/checkpoints/stage1_sft_teacher_p/final",
+    "--num_train_epochs",
+    "2",
+    "--gradient_accumulation_steps",
+    "4",
+    "--student_lr",
+    "5e-6",
+    "--weight_decay",
+    "0.01",
+    "--warmup_ratio",
+    "0.03",
+    "--max_length",
+    "32768",
+    "--max_frames",
+    "64",
+    "--fps",
+    "1.0",
+    "--video_max_pixels",
+    "0",
+    "--logging_steps",
+    "10",
+    "--save_steps",
+    "500",
+    "--save_total_limit",
+    "3",
+    "--num_workers",
+    "2",
+    "--max_seg_len",
+    "256",
+    "--max_latent_steps",
+    "32",
+    "--max_decode_len",
+    "256",
+    "--lambda_kl",
+    "1.0",
+    "--lambda_ans",
+    "1.0",
+    "--lambda_aux",
+    "0.1",
+    "--lambda_think_end",
+    "1.0",
+    "--temperature",
+    "2.0",
+    "--teacher_r_max_length",
+    "8192",
+    "--teacher_p_max_length",
+    "32768",
+    "--bf16",
+    "--wandb_project",
+    "video-opd-opd",
+    "--wandb_run_name",
+    "opd-v1"
+  ],
+  "program": "-m training.stage1_opd",
+  "git": {
+    "remote": "git@git.woa.com:sleepfeng/video_opd_code.git",
+    "commit": "abe9f1530a64e709629c52b1906a9efb62405c57"
+  },
+  "email": "2482312879@qq.com",
+  "root": "/mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/video_opd_code",
+  "host": "TENCENT64.site",
+  "executable": "/mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/root/miniconda3/envs/video_opd/bin/python3.11",
+  "cpu_count": 192,
+  "cpu_count_logical": 384,
+  "gpu": "NVIDIA H20",
+  "gpu_count": 8,
+  "disk": {
+    "/": {
+      "total": "12800361496576",
+      "used": "3675923275776"
+    }
+  },
+  "memory": {
+    "total": "2432295919616"
+  },
+  "gpu_nvidia": [
+    {
+      "name": "NVIDIA H20",
+      "memoryTotal": "102625181696",
+      "cudaCores": 9984,
+      "architecture": "Hopper",
+      "uuid": "GPU-816d085f-f672-9a9d-f762-ee60944ca7ff"
+    },
+    {
+      "name": "NVIDIA H20",
+      "memoryTotal": "102625181696",
+      "cudaCores": 9984,
+      "architecture": "Hopper",
+      "uuid": "GPU-0580bb55-64f0-c7ec-03e5-84f236161448"
+    },
+    {
+      "name": "NVIDIA H20",
+      "memoryTotal": "102625181696",
+      "cudaCores": 9984,
+      "architecture": "Hopper",
+      "uuid": "GPU-f3b5e5ae-3863-bb9c-c021-1e24b29dac9d"
+    },
+    {
+      "name": "NVIDIA H20",
+      "memoryTotal": "102625181696",
+      "cudaCores": 9984,
+      "architecture": "Hopper",
+      "uuid": "GPU-7b03ac3e-5a44-9000-1228-3acb73d1ceb3"
+    },
+    {
+      "name": "NVIDIA H20",
+      "memoryTotal": "102625181696",
+      "cudaCores": 9984,
+      "architecture": "Hopper",
+      "uuid": "GPU-b684ee1c-9882-9242-f4da-3585ee85af95"
+    },
+    {
+      "name": "NVIDIA H20",
+      "memoryTotal": "102625181696",
+      "cudaCores": 9984,
+      "architecture": "Hopper",
+      "uuid": "GPU-dcd93f79-64b2-0a6c-8f7b-55610969b9fc"
+    },
+    {
+      "name": "NVIDIA H20",
+      "memoryTotal": "102625181696",
+      "cudaCores": 9984,
+      "architecture": "Hopper",
+      "uuid": "GPU-e7cbaaef-35c0-7dbc-bbea-35cba1382a39"
+    },
+    {
+      "name": "NVIDIA H20",
+      "memoryTotal": "102625181696",
+      "cudaCores": 9984,
+      "architecture": "Hopper",
+      "uuid": "GPU-05f49125-c1e2-28c7-b85f-9f3193b1f2b4"
+    }
+  ],
+  "cudaVersion": "12.4",
+  "writerId": "fjj7xfijy4xzapj5pcs3lc3grpnjwyey"
+}

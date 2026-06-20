@@ -1,0 +1,126 @@
+{
+  "os": "Linux-5.4.241-1-tlinux4-0017.7-x86_64-with-glibc2.28",
+  "python": "CPython 3.11.15",
+  "startedAt": "2026-05-28T09:35:04.507175Z",
+  "args": [
+    "--role",
+    "student",
+    "--train_jsonl",
+    "/mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/video_opd_data/outputs/stage1_sft/stage1_sft_template_all.jsonl",
+    "--output_dir",
+    "/mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/video_opd_data/outputs/checkpoints/stage1_sft_student",
+    "--num_train_epochs",
+    "1",
+    "--per_device_batch_size",
+    "1",
+    "--gradient_accumulation_steps",
+    "2",
+    "--learning_rate",
+    "1e-5",
+    "--max_length",
+    "40960",
+    "--max_frames",
+    "64",
+    "--fps",
+    "1.0",
+    "--logging_steps",
+    "1",
+    "--save_steps",
+    "50",
+    "--keep_only_latest_ckpt",
+    "--latent_warmup_steps",
+    "100",
+    "--num_workers",
+    "4",
+    "--bf16",
+    "--no_save_final",
+    "--deepspeed",
+    "scripts/ds_zero2.json",
+    "--wandb_project",
+    "video-opd-stage1-sft",
+    "--wandb_run_name",
+    "student-full"
+  ],
+  "program": "-m training.stage1_sft_train",
+  "git": {
+    "remote": "git@git.woa.com:sleepfeng/video_opd_code.git",
+    "commit": "abe9f1530a64e709629c52b1906a9efb62405c57"
+  },
+  "email": "2482312879@qq.com",
+  "root": "/mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/video_opd_code",
+  "host": "TENCENT64.site",
+  "executable": "/mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/root/miniconda3/envs/video_opd/bin/python3.11",
+  "cpu_count": 192,
+  "cpu_count_logical": 384,
+  "gpu": "NVIDIA H20",
+  "gpu_count": 8,
+  "disk": {
+    "/": {
+      "total": "12800361496576",
+      "used": "8017875566592"
+    }
+  },
+  "memory": {
+    "total": "2432295882752"
+  },
+  "gpu_nvidia": [
+    {
+      "name": "NVIDIA H20",
+      "memoryTotal": "102625181696",
+      "cudaCores": 9984,
+      "architecture": "Hopper",
+      "uuid": "GPU-3def0939-3304-af0e-2946-518504c76b18"
+    },
+    {
+      "name": "NVIDIA H20",
+      "memoryTotal": "102625181696",
+      "cudaCores": 9984,
+      "architecture": "Hopper",
+      "uuid": "GPU-5d77c386-f602-913c-762f-8f05efae0020"
+    },
+    {
+      "name": "NVIDIA H20",
+      "memoryTotal": "102625181696",
+      "cudaCores": 9984,
+      "architecture": "Hopper",
+      "uuid": "GPU-f12c0c92-3f91-f16c-54b2-bcb94e350c03"
+    },
+    {
+      "name": "NVIDIA H20",
+      "memoryTotal": "102625181696",
+      "cudaCores": 9984,
+      "architecture": "Hopper",
+      "uuid": "GPU-94081273-b88a-ef18-a4f7-0e15729017e2"
+    },
+    {
+      "name": "NVIDIA H20",
+      "memoryTotal": "102625181696",
+      "cudaCores": 9984,
+      "architecture": "Hopper",
+      "uuid": "GPU-79e13911-2d36-be54-a0a4-524b1d991e0a"
+    },
+    {
+      "name": "NVIDIA H20",
+      "memoryTotal": "102625181696",
+      "cudaCores": 9984,
+      "architecture": "Hopper",
+      "uuid": "GPU-94d4034e-ef90-cdba-8fe4-66f830609c25"
+    },
+    {
+      "name": "NVIDIA H20",
+      "memoryTotal": "102625181696",
+      "cudaCores": 9984,
+      "architecture": "Hopper",
+      "uuid": "GPU-b3ce468d-5101-5108-8c5f-2f4e82c24291"
+    },
+    {
+      "name": "NVIDIA H20",
+      "memoryTotal": "102625181696",
+      "cudaCores": 9984,
+      "architecture": "Hopper",
+      "uuid": "GPU-caa2a7f6-8c7d-1555-f2b9-821e884937f3"
+    }
+  ],
+  "cudaVersion": "12.4",
+  "writerId": "b9tglqp75073iqcys12c2ukb5d4nc6jl"
+}

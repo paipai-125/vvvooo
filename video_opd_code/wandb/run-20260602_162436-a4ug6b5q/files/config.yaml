@@ -1,0 +1,207 @@
+_wandb:
+    value:
+        cli_version: 0.27.0
+        e:
+            dyydf91be7bn5mv3tbax85iv3syisyqc:
+                args:
+                    - --train_jsonl
+                    - /mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/video_opd_data/outputs/stage1_sft/stage1_sft_template_all.jsonl
+                    - --output_dir
+                    - /mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/video_opd_data/outputs/checkpoints/stage1_sft_v5_latent
+                    - --num_train_epochs
+                    - "1"
+                    - --per_device_batch_size
+                    - "1"
+                    - --gradient_accumulation_steps
+                    - "1"
+                    - --student_lr
+                    - "2e-5"
+                    - --translator_lr
+                    - "2e-5"
+                    - --weight_decay
+                    - "0.01"
+                    - --warmup_ratio
+                    - "0.03"
+                    - --max_length
+                    - "32768"
+                    - --max_frames
+                    - "64"
+                    - --fps
+                    - "1.0"
+                    - --video_max_pixels
+                    - "262144"
+                    - --logging_steps
+                    - "10"
+                    - --save_steps
+                    - "500"
+                    - --save_total_limit
+                    - "3"
+                    - --num_workers
+                    - "2"
+                    - --max_seg_len
+                    - "256"
+                    - --max_latent_steps
+                    - "32"
+                    - --lambda_trans
+                    - "1.0"
+                    - --lambda_ans
+                    - "1.0"
+                    - --lambda_aux
+                    - "1.0"
+                    - --bf16
+                    - --wandb_project
+                    - video-opd-latent
+                    - --wandb_run_name
+                    - overfit-split-gpu-grad-kv
+                cpu_count: 192
+                cpu_count_logical: 384
+                cudaVersion: "12.4"
+                disk:
+                    /:
+                        total: "12800361496576"
+                        used: "10621142810624"
+                email: 2482312879@qq.com
+                executable: /mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/root/miniconda3/envs/video_opd/bin/python3.11
+                git:
+                    commit: abe9f1530a64e709629c52b1906a9efb62405c57
+                    remote: git@git.woa.com:sleepfeng/video_opd_code.git
+                gpu: NVIDIA H20
+                gpu_count: 8
+                gpu_nvidia:
+                    - architecture: Hopper
+                      cudaCores: 9984
+                      memoryTotal: "102625181696"
+                      name: NVIDIA H20
+                      uuid: GPU-17766703-8dd9-834e-3e0d-d35c954e5154
+                    - architecture: Hopper
+                      cudaCores: 9984
+                      memoryTotal: "102625181696"
+                      name: NVIDIA H20
+                      uuid: GPU-fe0b288c-1eae-5d89-4cff-081b3ebb8b66
+                    - architecture: Hopper
+                      cudaCores: 9984
+                      memoryTotal: "102625181696"
+                      name: NVIDIA H20
+                      uuid: GPU-8a3f29c5-db46-b5c2-658a-00ad4eade77b
+                    - architecture: Hopper
+                      cudaCores: 9984
+                      memoryTotal: "102625181696"
+                      name: NVIDIA H20
+                      uuid: GPU-955351c6-b968-07bc-3b08-b79c0bf85a3c
+                    - architecture: Hopper
+                      cudaCores: 9984
+                      memoryTotal: "102625181696"
+                      name: NVIDIA H20
+                      uuid: GPU-73f3de92-b05f-0855-45bc-976295ac3bc6
+                    - architecture: Hopper
+                      cudaCores: 9984
+                      memoryTotal: "102625181696"
+                      name: NVIDIA H20
+                      uuid: GPU-348bbc23-5245-d787-b0e0-0a65dd4b5ee7
+                    - architecture: Hopper
+                      cudaCores: 9984
+                      memoryTotal: "102625181696"
+                      name: NVIDIA H20
+                      uuid: GPU-8dd7bd14-c6ea-36fc-b4cf-088772a83173
+                    - architecture: Hopper
+                      cudaCores: 9984
+                      memoryTotal: "102625181696"
+                      name: NVIDIA H20
+                      uuid: GPU-fc3b2e4c-56cf-b689-80bd-9a8f7cc74739
+                host: TENCENT64.site
+                memory:
+                    total: "2432295882752"
+                os: Linux-5.4.241-1-tlinux4-0017.7-x86_64-with-glibc2.28
+                program: -m training.stage1_sft_v5
+                python: CPython 3.11.15
+                root: /mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/video_opd_code
+                startedAt: "2026-06-02T08:24:36.445692Z"
+                writerId: dyydf91be7bn5mv3tbax85iv3syisyqc
+        m: []
+        python_version: 3.11.15
+        t:
+            "1":
+                - 1
+            "2":
+                - 1
+                - 5
+                - 11
+                - 41
+                - 49
+                - 53
+                - 71
+            "3":
+                - 2
+                - 13
+                - 16
+                - 61
+            "4": 3.11.15
+            "5": 0.27.0
+            "12": 0.27.0
+            "13": linux-x86_64
+bf16:
+    value: true
+deepspeed:
+    value: null
+fps:
+    value: 1
+gradient_accumulation_steps:
+    value: 1
+gradient_checkpointing:
+    value: true
+lambda_ans:
+    value: 1
+lambda_aux:
+    value: 1
+lambda_think_end:
+    value: 1
+lambda_trans:
+    value: 1
+logging_steps:
+    value: 10
+max_frames:
+    value: 64
+max_latent_steps:
+    value: 32
+max_length:
+    value: 32768
+max_samples:
+    value: 0
+max_seg_len:
+    value: 256
+model_path:
+    value: /mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/video_opd_data/Qwen3-VL-4B-Instruct
+num_train_epochs:
+    value: 1
+num_workers:
+    value: 2
+output_dir:
+    value: /mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/video_opd_data/outputs/checkpoints/stage1_sft_v5_latent
+per_device_batch_size:
+    value: 1
+resume_from:
+    value: null
+save_steps:
+    value: 500
+save_total_limit:
+    value: 3
+seed:
+    value: 42
+student_lr:
+    value: 2e-05
+train_jsonl:
+    value: /mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/video_opd_data/outputs/stage1_sft/stage1_sft_template_all.jsonl
+translator_lr:
+    value: 2e-05
+video_max_pixels:
+    value: 262144
+wandb_mode:
+    value: online
+wandb_project:
+    value: video-opd-latent
+wandb_run_name:
+    value: overfit-split-gpu-grad-kv
+warmup_ratio:
+    value: 0.03
+weight_decay:
+    value: 0.01

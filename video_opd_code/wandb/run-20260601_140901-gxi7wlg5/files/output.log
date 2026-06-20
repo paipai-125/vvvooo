@@ -1,0 +1,48 @@
+[Init] world_size=8 rank=0 local_rank=0 dtype=torch.bfloat16
+[Init] model_path=/mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/video_opd_data/Qwen3-VL-4B-Instruct
+[Init] max_length=32768 max_seg_len=256 max_latent_steps=32
+[Init] lambda: trans=1.0 ans=1.0 aux=0.1 think_end=1.0
+[Init] 加载 Student 模型...
+Loading weights: 100%|██████████████████████████████████████████████████████████████████████████████████████████████| 713/713 [00:00<00:00, 1161.36it/s]
+[Init] 加载 Translator 模型（冻结模式）...
+Loading weights: 100%|██████████████████████████████████████████████████████████████████████████████████████████████| 713/713 [00:00<00:00, 9022.78it/s]
+[Init] Translator 已冻结（eval mode, requires_grad=False）
+[Init] LatentExitHead 创建完成 (hidden_size=2560)
+[Init] LatentProjector 创建完成 (hidden_size=2560)
+[Dataset] subsample 38852 -> 10 (seed=42)
+[Dataset] 10 samples: /mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/video_opd_data/outputs/stage1_sft/stage1_sft_template_all.jsonl
+[Init] dataset=10 steps/epoch=1 total=10
+[2026-06-01 14:11:33,472] [WARNING] [lr_schedules.py:690:get_lr] Attempting to get learning rate from scheduler before it has started
+[Epoch 1] 开始加载数据（首个 batch 需解码视频，请耐心等待）...
+Epoch 1/10:   0%|                                                                                                                 | 0/2 [00:00<?, ?it/s][transformers] `use_cache=True` is incompatible with gradient checkpointing. Setting `use_cache=False`.
+Epoch 1/10:   0%|                                                                                                                 | 0/2 [00:05<?, ?it/s]
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/video_opd_code/training/stage1_sft_v5.py", line 1083, in <module>
+    main()
+  File "/mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/video_opd_code/training/stage1_sft_v5.py", line 957, in main
+    losses = train_one_sample(
+             ^^^^^^^^^^^^^^^^^
+  File "/mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/video_opd_code/training/stage1_sft_v5.py", line 653, in train_one_sample
+    h_0, past_key_values = latent_engine.phase1_forward_efficient(
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/video_opd_code/training/latent_forward.py", line 206, in phase1_forward_efficient
+    assert past_key_values is not None, \
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Phase 1 的 past_key_values 为 None！gradient checkpointing 未正确关闭。
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "<frozen runpy>", line 198, in _run_module_as_main
+[rank0]:   File "<frozen runpy>", line 88, in _run_code
+[rank0]:   File "/mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/video_opd_code/training/stage1_sft_v5.py", line 1083, in <module>
+[rank0]:     main()
+[rank0]:   File "/mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/video_opd_code/training/stage1_sft_v5.py", line 957, in main
+[rank0]:     losses = train_one_sample(
+[rank0]:              ^^^^^^^^^^^^^^^^^
+[rank0]:   File "/mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/video_opd_code/training/stage1_sft_v5.py", line 653, in train_one_sample
+[rank0]:     h_0, past_key_values = latent_engine.phase1_forward_efficient(
+[rank0]:                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/video_opd_code/training/latent_forward.py", line 206, in phase1_forward_efficient
+[rank0]:     assert past_key_values is not None, \
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]: AssertionError: Phase 1 的 past_key_values 为 None！gradient checkpointing 未正确关闭。

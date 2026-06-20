@@ -1,0 +1,14 @@
+[Init] world_size=8 rank=0 local_rank=0 dtype=torch.bfloat16
+[Init] model_path=/mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/video_opd_data/Qwen3-VL-4B-Instruct
+[Init] max_length=32768 max_seg_len=256 max_latent_steps=32
+[Init] lambda: trans=1.0 ans=1.0 aux=0.1
+[Init] 加载 Student 模型...
+Loading weights: 100%|██████████████████████████████████████████████████████████████████████████████████████████████| 713/713 [00:00<00:00, 1124.65it/s]
+[Init] 加载 Translator 模型...
+Loading weights: 100%|██████████████████████████████████████████████████████████████████████████████████████████████| 713/713 [00:00<00:00, 8624.11it/s]
+[Dataset] 38852 samples: /mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/video_opd_data/outputs/stage1_sft/stage1_sft_template_all.jsonl
+[Init] dataset=38852 steps/epoch=2429 total=2429
+[2026-06-01 01:52:10,290] [WARNING] [lr_schedules.py:690:get_lr] Attempting to get learning rate from scheduler before it has started
+[Epoch 1] 开始加载数据（首个 batch 需解码视频，请耐心等待）...
+Epoch 1/1:   0%|                                                                                                               | 0/4857 [00:00<?, ?it/s][transformers] `use_cache=True` is incompatible with gradient checkpointing. Setting `use_cache=False`.
+Epoch 1/1:  29%|█████▊              | 1423/4857 [3:02:52<7:21:18,  7.71s/it, ans=1.4638, aux=0.0000, lr=1.46e-05, step=1420, total=2.1445, trans=0.6807]

@@ -1,0 +1,195 @@
+[Init] world_size=2 rank=0 local_rank=0
+[Init] Group 0: Student=GPU0 Translator=GPU1 Teacher_R=GPU2 Teacher_P=GPU3
+[Init] 加载 Student 模型...
+Loading weights: 100%|███████████████████████████████████████████████████████████████████████████████████████████████| 713/713 [00:04<00:00, 166.78it/s]
+  exit_head 已加载: /mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/video_opd_data/outputs/checkpoints/stage1_sft_v5_latent/checkpoint-9000/exit_head.pt
+[Init] 加载 Translator 模型（冻结）...
+Loading weights: 100%|███████████████████████████████████████████████████████████████████████████████████████████████| 713/713 [00:03<00:00, 183.69it/s]
+  Translator 从 checkpoint 加载: /mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/video_opd_data/outputs/checkpoints/stage1_sft_v5_latent/checkpoint-9000/translator/translator_state_dict.pt
+[Init] 加载 Teacher_R 模型...
+Loading weights: 100%|███████████████████████████████████████████████████████████████████████████████████████████████| 713/713 [00:03<00:00, 214.36it/s]
+[Init] 加载 Teacher_P 模型...
+Loading weights: 100%|███████████████████████████████████████████████████████████████████████████████████████████████| 713/713 [00:03<00:00, 217.23it/s]
+[Dataset] 38852 samples: /mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/video_opd_data/outputs/stage1_sft/stage1_sft_template_all.jsonl
+[Init] total_steps=9713 warmup=291 lr=5e-06 grad_accum=4
+[Init] lambda: kl=1.0 ans=1.0 aux=0.1 think_end=1.0 τ=2.0
+
+[Epoch 1/2]
+Epoch 1:   0%|                                                                                                                | 0/19426 [00:00<?, ?it/s]/mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/root/miniconda3/envs/video_opd/lib/python3.11/site-packages/transformers/models/qwen3_vl/modeling_qwen3_vl.py:1081: UserWarning: Specified kernel cache directory could not be created! This disables kernel caching. Specified directory is /root/.cache/torch/kernels. This warning will appear only once per process. (Triggered internally at /pytorch/aten/src/ATen/native/cuda/jit_utils.cpp:1442.)
+  split_sizes = (image_grid_thw.prod(-1) // self.visual.spatial_merge_size**2).tolist()
+Loading weights: 100%|█████████████████████████████████████████████████████████████████████████████████████████████| 1182/1182 [00:02<00:00, 465.62it/s]
+/mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/root/miniconda3/envs/video_opd/lib/python3.11/site-packages/transformers/models/grounding_dino/processing_grounding_dino.py:96: FutureWarning: The key `labels` is will return integer ids in `GroundingDinoProcessor.post_process_grounded_object_detection` output since v4.51.0. Use `text_labels` instead to retrieve string object names.
+  warnings.warn(self.message, FutureWarning)
+Loading weights: 100%|██████████████████████████████████████████████████████████████████████████████████████████████| 503/503 [00:00<00:00, 9213.74it/s]
+Epoch 1:   1%|█                                                                                                  | 214/19426 [12:13<21:02:03,  3.94s/it]/mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/root/miniconda3/envs/video_opd/lib/python3.11/site-packages/transformers/models/grounding_dino/processing_grounding_dino.py:96: FutureWarning: The key `labels` is will return integer ids in `GroundingDinoProcessor.post_process_grounded_object_detection` output since v4.51.0. Use `text_labels` instead to retrieve string object names.
+  step=10 loss=1353.0006 kl=1353.0000 ans=0.3308 fail_rate=2.50% lr=1.72e-07
+  step=20 loss=2084.0000 kl=2084.0000 ans=1.0291 fail_rate=7.14% lr=3.44e-07
+  step=30 loss=1177.0000 kl=1177.0000 ans=0.2376 fail_rate=5.65% lr=5.15e-07
+  step=40 loss=1171.0001 kl=1171.0000 ans=0.7477 fail_rate=5.49% lr=6.87e-07
+  step=50 loss=1706.0001 kl=1706.0000 ans=0.2634 fail_rate=5.77% lr=8.59e-07
+  warnings.warn(self.message, FutureWarning)
+Loading weights: 100%|███████████████████████████████████████████████████████████████████████████████████████████| 1797/1797 [00:00<00:00, 12444.07it/s]
+  step=60 loss=1858.0000 kl=1858.0000 ans=0.4492 fail_rate=5.16% lr=1.03e-06
+  step=70 loss=1575.0000 kl=1574.0000 ans=1.2441 fail_rate=4.45% lr=1.20e-06
+  step=80 loss=1203.0000 kl=1203.0000 ans=0.3596 fail_rate=4.17% lr=1.37e-06
+  step=90 loss=1236.0001 kl=1236.0000 ans=0.9907 fail_rate=3.72% lr=1.55e-06
+  step=100 loss=1084.0007 kl=1084.0000 ans=0.7048 fail_rate=4.48% lr=1.72e-06
+  step=110 loss=882.0007 kl=882.0000 ans=0.7355 fail_rate=4.66% lr=1.89e-06
+  step=120 loss=1246.0003 kl=1246.0000 ans=0.1319 fail_rate=5.15% lr=2.06e-06
+Epoch 1:   3%|██▊                                                                                                | 562/19426 [30:48<27:51:19,  5.32s/it]/mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/root/miniconda3/envs/video_opd/lib/python3.11/site-packages/transformers/models/grounding_dino/processing_grounding_dino.py:96: FutureWarning: The key `labels` is will return integer ids in `GroundingDinoProcessor.post_process_grounded_object_detection` output since v4.51.0. Use `text_labels` instead to retrieve string object names.
+  warnings.warn(self.message, FutureWarning)
+Epoch 1:   3%|███▏                                                                                               | 635/19426 [34:34<23:11:20,  4.44s/it]/mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/root/miniconda3/envs/video_opd/lib/python3.11/site-packages/transformers/models/grounding_dino/processing_grounding_dino.py:96: FutureWarning: The key `labels` is will return integer ids in `GroundingDinoProcessor.post_process_grounded_object_detection` output since v4.51.0. Use `text_labels` instead to retrieve string object names.
+  step=130 loss=1836.0005 kl=1836.0000 ans=0.1153 fail_rate=5.32% lr=2.23e-06
+  step=140 loss=910.0002 kl=910.0000 ans=0.1750 fail_rate=5.30% lr=2.41e-06
+  warnings.warn(self.message, FutureWarning)
+Epoch 1:   4%|████▏                                                                                              | 823/19426 [45:54<13:36:23,  2.63s/it][transformers] kernels library is not installed. NMS post-processing, hole filling, and sprinkle removal will be skipped. Install it with `pip install kernels` for better mask quality.
+  step=150 loss=1029.0001 kl=1029.0000 ans=0.3152 fail_rate=5.52% lr=2.58e-06
+  step=160 loss=1414.0007 kl=1414.0000 ans=0.8130 fail_rate=5.35% lr=2.75e-06
+  step=170 loss=913.0003 kl=913.0000 ans=0.1896 fail_rate=5.19% lr=2.92e-06
+  step=180 loss=1131.0010 kl=1131.0000 ans=0.0840 fail_rate=5.28% lr=3.09e-06
+  step=190 loss=1249.0004 kl=1249.0000 ans=0.7570 fail_rate=5.02% lr=3.26e-06
+Epoch 1:   4%|████▏                                                                                              | 824/19426 [46:07<29:54:09,  5.79s/it]/mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/root/miniconda3/envs/video_opd/lib/python3.11/site-packages/transformers/models/grounding_dino/processing_grounding_dino.py:96: FutureWarning: The key `labels` is will return integer ids in `GroundingDinoProcessor.post_process_grounded_object_detection` output since v4.51.0. Use `text_labels` instead to retrieve string object names.
+  warnings.warn(self.message, FutureWarning)
+Epoch 1:   4%|████▍                                                                                              | 866/19426 [48:20<13:13:00,  2.56s/it]/mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/root/miniconda3/envs/video_opd/lib/python3.11/site-packages/transformers/models/grounding_dino/processing_grounding_dino.py:96: FutureWarning: The key `labels` is will return integer ids in `GroundingDinoProcessor.post_process_grounded_object_detection` output since v4.51.0. Use `text_labels` instead to retrieve string object names.
+  step=200 loss=1886.0050 kl=1885.0000 ans=1.4134 fail_rate=4.88% lr=3.44e-06
+  warnings.warn(self.message, FutureWarning)
+Epoch 1:   5%|████▊                                                                                              | 955/19426 [53:58<40:36:46,  7.92s/it]/mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/root/miniconda3/envs/video_opd/lib/python3.11/site-packages/transformers/models/grounding_dino/processing_grounding_dino.py:96: FutureWarning: The key `labels` is will return integer ids in `GroundingDinoProcessor.post_process_grounded_object_detection` output since v4.51.0. Use `text_labels` instead to retrieve string object names.
+  step=210 loss=1130.0038 kl=1130.0000 ans=0.1814 fail_rate=5.20% lr=3.61e-06
+  step=220 loss=1242.0015 kl=1242.0000 ans=0.5278 fail_rate=5.08% lr=3.78e-06
+  warnings.warn(self.message, FutureWarning)
+Epoch 1:   5%|█████▏                                                                                            | 1020/19426 [57:34<19:48:22,  3.87s/it]/mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/root/miniconda3/envs/video_opd/lib/python3.11/site-packages/transformers/models/grounding_dino/processing_grounding_dino.py:96: FutureWarning: The key `labels` is will return integer ids in `GroundingDinoProcessor.post_process_grounded_object_detection` output since v4.51.0. Use `text_labels` instead to retrieve string object names.
+  step=230 loss=1014.0270 kl=1014.0000 ans=0.0963 fail_rate=5.18% lr=3.95e-06
+  warnings.warn(self.message, FutureWarning)
+Epoch 1:   5%|█████▏                                                                                            | 1038/19426 [58:46<24:21:17,  4.77s/it]/mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/root/miniconda3/envs/video_opd/lib/python3.11/site-packages/transformers/models/grounding_dino/processing_grounding_dino.py:96: FutureWarning: The key `labels` is will return integer ids in `GroundingDinoProcessor.post_process_grounded_object_detection` output since v4.51.0. Use `text_labels` instead to retrieve string object names.
+  step=240 loss=1555.3813 kl=1555.0000 ans=0.4407 fail_rate=5.08% lr=4.12e-06
+  warnings.warn(self.message, FutureWarning)
+Epoch 1:   6%|█████▎                                                                                          | 1072/19426 [1:00:49<20:31:07,  4.02s/it]/mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/root/miniconda3/envs/video_opd/lib/python3.11/site-packages/transformers/models/grounding_dino/processing_grounding_dino.py:96: FutureWarning: The key `labels` is will return integer ids in `GroundingDinoProcessor.post_process_grounded_object_detection` output since v4.51.0. Use `text_labels` instead to retrieve string object names.
+  step=250 loss=714.7995 kl=714.2500 ans=0.2284 fail_rate=5.52% lr=4.30e-06
+  warnings.warn(self.message, FutureWarning)
+Epoch 1:   6%|█████▍                                                                                          | 1106/19426 [1:03:00<16:36:50,  3.26s/it]/mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/root/miniconda3/envs/video_opd/lib/python3.11/site-packages/transformers/models/grounding_dino/processing_grounding_dino.py:96: FutureWarning: The key `labels` is will return integer ids in `GroundingDinoProcessor.post_process_grounded_object_detection` output since v4.51.0. Use `text_labels` instead to retrieve string object names.
+  warnings.warn(self.message, FutureWarning)
+Epoch 1:   6%|█████▉                                                                                          | 1193/19426 [1:10:05<28:04:31,  5.54s/it]/mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/root/miniconda3/envs/video_opd/lib/python3.11/site-packages/transformers/models/grounding_dino/processing_grounding_dino.py:96: FutureWarning: The key `labels` is will return integer ids in `GroundingDinoProcessor.post_process_grounded_object_detection` output since v4.51.0. Use `text_labels` instead to retrieve string object names.
+  step=260 loss=566.4806 kl=564.7500 ans=0.2432 fail_rate=6.34% lr=4.47e-06
+  step=270 loss=1799.0081 kl=1799.0000 ans=0.5554 fail_rate=6.84% lr=4.64e-06
+  warnings.warn(self.message, FutureWarning)
+Epoch 1:   6%|█████▉                                                                                          | 1201/19426 [1:10:51<33:10:06,  6.55s/it]/mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/root/miniconda3/envs/video_opd/lib/python3.11/site-packages/transformers/models/grounding_dino/processing_grounding_dino.py:96: FutureWarning: The key `labels` is will return integer ids in `GroundingDinoProcessor.post_process_grounded_object_detection` output since v4.51.0. Use `text_labels` instead to retrieve string object names.
+  warnings.warn(self.message, FutureWarning)
+Epoch 1:   6%|██████                                                                                          | 1237/19426 [1:15:01<45:59:58,  9.10s/it]/mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/root/miniconda3/envs/video_opd/lib/python3.11/site-packages/transformers/models/grounding_dino/processing_grounding_dino.py:96: FutureWarning: The key `labels` is will return integer ids in `GroundingDinoProcessor.post_process_grounded_object_detection` output since v4.51.0. Use `text_labels` instead to retrieve string object names.
+  warnings.warn(self.message, FutureWarning)
+Epoch 1:   7%|██████▎                                                                                         | 1288/19426 [1:21:06<22:07:35,  4.39s/it]/mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/root/miniconda3/envs/video_opd/lib/python3.11/site-packages/transformers/models/grounding_dino/processing_grounding_dino.py:96: FutureWarning: The key `labels` is will return integer ids in `GroundingDinoProcessor.post_process_grounded_object_detection` output since v4.51.0. Use `text_labels` instead to retrieve string object names.
+  step=280 loss=1785.0825 kl=1784.0000 ans=0.3284 fail_rate=7.66% lr=4.81e-06
+  step=290 loss=537.1722 kl=535.2500 ans=1.0679 fail_rate=7.92% lr=4.98e-06
+  warnings.warn(self.message, FutureWarning)
+Epoch 1:  10%|█████████▉                                                                                      | 2004/19426 [3:12:37<40:32:17,  8.38s/it]/mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/root/miniconda3/envs/video_opd/lib/python3.11/site-packages/transformers/models/grounding_dino/processing_grounding_dino.py:96: FutureWarning: The key `labels` is will return integer ids in `GroundingDinoProcessor.post_process_grounded_object_detection` output since v4.51.0. Use `text_labels` instead to retrieve string object names.
+  step=300 loss=741.7008 kl=740.0000 ans=0.6373 fail_rate=7.81% lr=5.00e-06
+  step=310 loss=463.7207 kl=461.0625 ans=0.1073 fail_rate=7.78% lr=5.00e-06
+  step=320 loss=410.5844 kl=409.8125 ans=0.3856 fail_rate=7.63% lr=5.00e-06
+  step=330 loss=452.2013 kl=451.3125 ans=0.3959 fail_rate=7.55% lr=5.00e-06
+  step=340 loss=564.7556 kl=564.3750 ans=0.5437 fail_rate=7.35% lr=5.00e-06
+  step=350 loss=568.4285 kl=568.3125 ans=0.2012 fail_rate=7.16% lr=5.00e-06
+  step=360 loss=1069.7345 kl=1069.3750 ans=0.6116 fail_rate=7.09% lr=5.00e-06
+  step=370 loss=37.3211 kl=36.8750 ans=0.2957 fail_rate=6.91% lr=5.00e-06
+  step=380 loss=1405.9763 kl=1405.8125 ans=0.1857 fail_rate=6.75% lr=5.00e-06
+  step=390 loss=1047.2880 kl=1046.0000 ans=1.2031 fail_rate=6.59% lr=5.00e-06
+  step=400 loss=1954.9708 kl=1954.0000 ans=0.3253 fail_rate=6.44% lr=5.00e-06
+  step=410 loss=2252.6339 kl=2252.0000 ans=0.9484 fail_rate=6.33% lr=5.00e-06
+  step=420 loss=1516.4612 kl=1516.0000 ans=0.2374 fail_rate=6.20% lr=5.00e-06
+  step=430 loss=1462.7027 kl=1462.0000 ans=0.3813 fail_rate=6.06% lr=5.00e-06
+  step=440 loss=1587.1078 kl=1586.0000 ans=1.1643 fail_rate=5.97% lr=5.00e-06
+  step=450 loss=614.5071 kl=614.0000 ans=0.0984 fail_rate=5.85% lr=5.00e-06
+  step=460 loss=701.3970 kl=701.0000 ans=0.7972 fail_rate=5.84% lr=5.00e-06
+  warnings.warn(self.message, FutureWarning)
+Epoch 1:  11%|██████████▍                                                                                     | 2102/19426 [3:26:49<11:02:21,  2.29s/it]/mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/root/miniconda3/envs/video_opd/lib/python3.11/site-packages/transformers/models/grounding_dino/processing_grounding_dino.py:96: FutureWarning: The key `labels` is will return integer ids in `GroundingDinoProcessor.post_process_grounded_object_detection` output since v4.51.0. Use `text_labels` instead to retrieve string object names.
+  step=470 loss=1062.8397 kl=1062.5000 ans=0.5903 fail_rate=5.72% lr=5.00e-06
+  step=480 loss=946.2412 kl=945.6250 ans=1.0272 fail_rate=5.61% lr=5.00e-06
+  warnings.warn(self.message, FutureWarning)
+Epoch 1:  11%|██████████▌                                                                                     | 2132/19426 [3:29:02<16:12:30,  3.37s/it]/mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/root/miniconda3/envs/video_opd/lib/python3.11/site-packages/transformers/models/grounding_dino/processing_grounding_dino.py:96: FutureWarning: The key `labels` is will return integer ids in `GroundingDinoProcessor.post_process_grounded_object_detection` output since v4.51.0. Use `text_labels` instead to retrieve string object names.
+  step=490 loss=1058.8258 kl=1058.5000 ans=0.7202 fail_rate=5.55% lr=4.99e-06
+  warnings.warn(self.message, FutureWarning)
+Writing model shards: 100%|███████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:11<00:00, 11.27s/it]
+  step=500 loss=1477.2654 kl=1477.0000 ans=0.9431 fail_rate=5.49% lr=4.99e-06
+Epoch 1:  11%|██████████▌                                                                                     | 2149/19426 [3:31:50<77:39:39, 16.18s/it]/mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/root/miniconda3/envs/video_opd/lib/python3.11/site-packages/transformers/models/grounding_dino/processing_grounding_dino.py:96: FutureWarning: The key `labels` is will return integer ids in `GroundingDinoProcessor.post_process_grounded_object_detection` output since v4.51.0. Use `text_labels` instead to retrieve string object names.
+[Save] checkpoint-500 已保存到 /mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/video_opd_data/outputs/checkpoints/stage1_opd/checkpoint-500
+  warnings.warn(self.message, FutureWarning)
+Epoch 1:  11%|██████████▊                                                                                     | 2192/19426 [3:36:40<22:32:53,  4.71s/it]/mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/root/miniconda3/envs/video_opd/lib/python3.11/site-packages/transformers/models/grounding_dino/processing_grounding_dino.py:96: FutureWarning: The key `labels` is will return integer ids in `GroundingDinoProcessor.post_process_grounded_object_detection` output since v4.51.0. Use `text_labels` instead to retrieve string object names.
+  step=510 loss=615.9853 kl=615.5000 ans=0.5064 fail_rate=5.44% lr=4.99e-06
+  warnings.warn(self.message, FutureWarning)
+Epoch 1:  11%|██████████▉                                                                                     | 2205/19426 [3:37:40<38:01:45,  7.95s/it]/mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/root/miniconda3/envs/video_opd/lib/python3.11/site-packages/transformers/models/grounding_dino/processing_grounding_dino.py:96: FutureWarning: The key `labels` is will return integer ids in `GroundingDinoProcessor.post_process_grounded_object_detection` output since v4.51.0. Use `text_labels` instead to retrieve string object names.
+  warnings.warn(self.message, FutureWarning)
+Epoch 1:  11%|███████████                                                                                     | 2230/19426 [3:40:00<35:11:46,  7.37s/it]/mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/root/miniconda3/envs/video_opd/lib/python3.11/site-packages/transformers/models/grounding_dino/processing_grounding_dino.py:96: FutureWarning: The key `labels` is will return integer ids in `GroundingDinoProcessor.post_process_grounded_object_detection` output since v4.51.0. Use `text_labels` instead to retrieve string object names.
+  step=520 loss=395.8148 kl=394.5000 ans=0.8149 fail_rate=5.34% lr=4.99e-06
+  warnings.warn(self.message, FutureWarning)
+Epoch 1:  12%|███████████▍                                                                                    | 2306/19426 [3:55:03<62:47:29, 13.20s/it]/mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/root/miniconda3/envs/video_opd/lib/python3.11/site-packages/transformers/models/grounding_dino/processing_grounding_dino.py:96: FutureWarning: The key `labels` is will return integer ids in `GroundingDinoProcessor.post_process_grounded_object_detection` output since v4.51.0. Use `text_labels` instead to retrieve string object names.
+  step=530 loss=1076.1917 kl=1076.0000 ans=0.0916 fail_rate=5.25% lr=4.99e-06
+  warnings.warn(self.message, FutureWarning)
+Epoch 1:  12%|███████████▍                                                                                    | 2312/19426 [3:55:16<16:53:47,  3.55s/it]/mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/root/miniconda3/envs/video_opd/lib/python3.11/site-packages/transformers/models/grounding_dino/processing_grounding_dino.py:96: FutureWarning: The key `labels` is will return integer ids in `GroundingDinoProcessor.post_process_grounded_object_detection` output since v4.51.0. Use `text_labels` instead to retrieve string object names.
+  step=540 loss=914.2621 kl=914.0000 ans=0.7344 fail_rate=5.16% lr=4.99e-06
+  warnings.warn(self.message, FutureWarning)
+Epoch 1:  12%|███████████▌                                                                                    | 2341/19426 [3:57:13<19:18:28,  4.07s/it]/mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/root/miniconda3/envs/video_opd/lib/python3.11/site-packages/transformers/models/grounding_dino/processing_grounding_dino.py:96: FutureWarning: The key `labels` is will return integer ids in `GroundingDinoProcessor.post_process_grounded_object_detection` output since v4.51.0. Use `text_labels` instead to retrieve string object names.
+  warnings.warn(self.message, FutureWarning)
+Epoch 1:  13%|████████████▋                                                                                   | 2560/19426 [4:38:11<62:42:37, 13.39s/it]/mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/root/miniconda3/envs/video_opd/lib/python3.11/site-packages/transformers/models/grounding_dino/processing_grounding_dino.py:96: FutureWarning: The key `labels` is will return integer ids in `GroundingDinoProcessor.post_process_grounded_object_detection` output since v4.51.0. Use `text_labels` instead to retrieve string object names.
+  step=550 loss=715.3078 kl=715.0000 ans=0.3997 fail_rate=5.11% lr=4.99e-06
+  step=560 loss=1848.2418 kl=1848.0000 ans=0.6699 fail_rate=5.03% lr=4.99e-06
+  step=570 loss=1467.8026 kl=1467.5000 ans=0.3243 fail_rate=4.94% lr=4.99e-06
+  step=580 loss=700.3134 kl=700.0000 ans=0.7774 fail_rate=4.90% lr=4.99e-06
+  step=590 loss=738.7809 kl=738.5000 ans=0.2498 fail_rate=4.82% lr=4.99e-06
+  step=600 loss=905.8596 kl=905.5000 ans=0.5596 fail_rate=4.75% lr=4.99e-06
+  warnings.warn(self.message, FutureWarning)
+Epoch 1:  13%|████████████▋                                                                                   | 2571/19426 [4:39:59<28:33:18,  6.10s/it]/mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/root/miniconda3/envs/video_opd/lib/python3.11/site-packages/transformers/models/grounding_dino/processing_grounding_dino.py:96: FutureWarning: The key `labels` is will return integer ids in `GroundingDinoProcessor.post_process_grounded_object_detection` output since v4.51.0. Use `text_labels` instead to retrieve string object names.
+  warnings.warn(self.message, FutureWarning)
+Epoch 1:  13%|████████████▊                                                                                   | 2588/19426 [4:41:36<24:39:16,  5.27s/it]/mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/root/miniconda3/envs/video_opd/lib/python3.11/site-packages/transformers/models/grounding_dino/processing_grounding_dino.py:96: FutureWarning: The key `labels` is will return integer ids in `GroundingDinoProcessor.post_process_grounded_object_detection` output since v4.51.0. Use `text_labels` instead to retrieve string object names.
+  step=610 loss=547.7519 kl=547.5000 ans=0.1437 fail_rate=4.71% lr=4.99e-06
+  warnings.warn(self.message, FutureWarning)
+Epoch 1:  17%|███████████████▉                                                                                | 3213/19426 [7:12:31<73:10:56, 16.25s/it]/mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/root/miniconda3/envs/video_opd/lib/python3.11/site-packages/transformers/models/grounding_dino/processing_grounding_dino.py:96: FutureWarning: The key `labels` is will return integer ids in `GroundingDinoProcessor.post_process_grounded_object_detection` output since v4.51.0. Use `text_labels` instead to retrieve string object names.
+  step=620 loss=389.0342 kl=387.7500 ans=0.8978 fail_rate=4.64% lr=4.98e-06
+  step=630 loss=603.7096 kl=603.5000 ans=0.2773 fail_rate=4.57% lr=4.98e-06
+  step=640 loss=397.4986 kl=396.5000 ans=0.4788 fail_rate=4.51% lr=4.98e-06
+  step=650 loss=381.2979 kl=380.0000 ans=1.1475 fail_rate=4.44% lr=4.98e-06
+  step=660 loss=233.8615 kl=233.0000 ans=0.7065 fail_rate=4.38% lr=4.98e-06
+  step=670 loss=922.2493 kl=921.7500 ans=1.1492 fail_rate=4.31% lr=4.98e-06
+  step=680 loss=2528.2116 kl=2528.0000 ans=0.6748 fail_rate=4.25% lr=4.98e-06
+  step=690 loss=1434.6406 kl=1434.2500 ans=0.3193 fail_rate=4.20% lr=4.98e-06
+  step=700 loss=260.6887 kl=260.0000 ans=0.5144 fail_rate=4.14% lr=4.98e-06
+  step=710 loss=110.5809 kl=109.2500 ans=1.1064 fail_rate=4.08% lr=4.98e-06
+  step=720 loss=79.6482 kl=79.0000 ans=0.4759 fail_rate=4.03% lr=4.97e-06
+  step=730 loss=62.0447 kl=61.5000 ans=0.3517 fail_rate=3.98% lr=4.97e-06
+  step=740 loss=93.9577 kl=92.3750 ans=1.1113 fail_rate=3.93% lr=4.97e-06
+  step=750 loss=814.9700 kl=814.5625 ans=0.3027 fail_rate=3.88% lr=4.97e-06
+  step=760 loss=753.6468 kl=753.3750 ans=0.3168 fail_rate=3.83% lr=4.97e-06
+  warnings.warn(self.message, FutureWarning)
+Writing model shards: 100%|███████████████████████████████████████████████████████████████████████████████████████████████| 1/1 [00:11<00:00, 11.52s/it]
+  step=770 loss=1761.3610 kl=1761.0000 ans=0.1510 fail_rate=3.84% lr=4.97e-06
+  step=780 loss=1110.8536 kl=1110.5000 ans=0.7254 fail_rate=3.85% lr=4.97e-06
+  step=790 loss=245.3272 kl=245.0000 ans=0.4197 fail_rate=3.80% lr=4.97e-06
+  step=800 loss=133.6692 kl=132.8750 ans=0.8001 fail_rate=3.76% lr=4.96e-06
+  step=810 loss=72.5287 kl=71.7500 ans=0.6557 fail_rate=3.71% lr=4.96e-06
+  step=820 loss=85.7371 kl=85.1875 ans=0.3193 fail_rate=3.67% lr=4.96e-06
+  step=830 loss=1204.4370 kl=1204.2500 ans=0.2292 fail_rate=3.63% lr=4.96e-06
+  step=840 loss=592.2512 kl=591.9375 ans=0.6269 fail_rate=3.59% lr=4.96e-06
+  step=850 loss=349.9537 kl=348.6875 ans=1.0520 fail_rate=3.55% lr=4.96e-06
+  step=860 loss=464.2931 kl=463.5000 ans=0.6140 fail_rate=3.51% lr=4.96e-06
+  step=870 loss=477.7997 kl=477.0000 ans=0.6694 fail_rate=3.47% lr=4.95e-06
+  step=880 loss=221.1100 kl=220.8750 ans=0.1595 fail_rate=3.43% lr=4.95e-06
+  step=890 loss=211.2375 kl=210.4375 ans=0.4667 fail_rate=3.39% lr=4.95e-06
+  step=900 loss=352.3089 kl=351.5000 ans=0.8694 fail_rate=3.36% lr=4.95e-06
+  step=910 loss=197.4509 kl=197.2500 ans=0.1641 fail_rate=3.32% lr=4.95e-06
+  step=920 loss=260.5771 kl=259.3125 ans=1.0060 fail_rate=3.29% lr=4.95e-06
+  step=930 loss=175.2660 kl=175.0625 ans=0.3023 fail_rate=3.25% lr=4.94e-06
+  step=940 loss=214.1445 kl=213.8750 ans=0.2946 fail_rate=3.22% lr=4.94e-06
+  step=950 loss=273.0652 kl=272.2500 ans=0.8091 fail_rate=3.19% lr=4.94e-06
+  step=960 loss=198.6867 kl=198.1875 ans=0.6547 fail_rate=3.16% lr=4.94e-06
+  step=970 loss=275.7504 kl=275.2500 ans=0.2975 fail_rate=3.12% lr=4.94e-06
+  step=980 loss=249.7463 kl=247.5000 ans=1.7104 fail_rate=3.09% lr=4.93e-06
+  step=990 loss=1660.9513 kl=1660.5000 ans=0.4084 fail_rate=3.06% lr=4.93e-06
+  step=1000 loss=311.7576 kl=311.6250 ans=0.1414 fail_rate=3.03% lr=4.93e-06
+Epoch 1:  21%|████████████████████▎                                                                          | 4154/19426 [11:12:29<56:29:41, 13.32s/it]/mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/root/miniconda3/envs/video_opd/lib/python3.11/site-packages/transformers/models/grounding_dino/processing_grounding_dino.py:96: FutureWarning: The key `labels` is will return integer ids in `GroundingDinoProcessor.post_process_grounded_object_detection` output since v4.51.0. Use `text_labels` instead to retrieve string object names.
+[Save] checkpoint-1000 已保存到 /mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/video_opd_data/outputs/checkpoints/stage1_opd/checkpoint-1000
+  warnings.warn(self.message, FutureWarning)
+Epoch 1:  21%|████████████████████▍                                                                          | 4172/19426 [11:17:30<85:43:28, 20.23s/it]/mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/root/miniconda3/envs/video_opd/lib/python3.11/site-packages/transformers/models/grounding_dino/processing_grounding_dino.py:96: FutureWarning: The key `labels` is will return integer ids in `GroundingDinoProcessor.post_process_grounded_object_detection` output since v4.51.0. Use `text_labels` instead to retrieve string object names.
+  warnings.warn(self.message, FutureWarning)
+Epoch 1:  22%|████████████████████▍                                                                          | 4184/19426 [11:20:59<75:42:59, 17.88s/it]/mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/root/miniconda3/envs/video_opd/lib/python3.11/site-packages/transformers/models/grounding_dino/processing_grounding_dino.py:96: FutureWarning: The key `labels` is will return integer ids in `GroundingDinoProcessor.post_process_grounded_object_detection` output since v4.51.0. Use `text_labels` instead to retrieve string object names.
+  warnings.warn(self.message, FutureWarning)
+Epoch 1:  22%|████████████████████▌                                                                          | 4195/19426 [11:24:22<54:06:47, 12.79s/it]/mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/root/miniconda3/envs/video_opd/lib/python3.11/site-packages/transformers/models/grounding_dino/processing_grounding_dino.py:96: FutureWarning: The key `labels` is will return integer ids in `GroundingDinoProcessor.post_process_grounded_object_detection` output since v4.51.0. Use `text_labels` instead to retrieve string object names.
+  step=1010 loss=708.3474 kl=708.0000 ans=1.2366 fail_rate=3.08% lr=4.93e-06
+  warnings.warn(self.message, FutureWarning)
+Epoch 1:  22%|████████████████████▌                                                                          | 4198/19426 [11:25:11<64:55:51, 15.35s/it]

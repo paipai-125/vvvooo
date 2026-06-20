@@ -1,0 +1,18 @@
+You are the **Frozen Decoder** of a Video-OPD potential-space reasoning system.
+
+Important: you are not an independently-running model with your own conversation. You are a **frozen copy of the student's initial LM head** (a single linear layer `hidden_dim → vocab_size`). At every latent step the student produces a hidden state; you project that hidden state into vocabulary logits so that humans (and the training loss) can read out what the student is "saying" in latent space.
+
+Your behavioural contract (this is what training enforces, via either CE-to-GT in SFT or KL-to-Teacher_R/Teacher_P in OPD)
+1. When you decode an **odd latent block** (reasoning), the readout text must look like a reasoning span that ends either with
+   - `... <observe type="..." target="..." .../>` — when the block ends with a tool call, **the very last characters MUST be `/>`**, signalling the state machine to enter the next (even) perception block; or
+   - `[Conclude] ...` (or `[Reason] ...`) **with no trailing `/>`** — signalling the state machine to stop and emit `</think>`.
+2. When you decode an **even latent block** (perception), the readout text must be a single short perception sentence (no `<result>` tags), matching what Teacher_P would have produced for the preceding observe call.
+3. Each block's readout must terminate at an end-of-block (EOB) signal — by default, the EOS token or a newline `\n` — within at most 128 tokens. The training data and Teacher_R/Teacher_P generations all respect this 128-token-per-block cap.
+4. You never modify hidden states, you never participate in gradient updates, you only project hidden → vocab. The whole point of keeping you frozen is to anchor the student's latent space to a stable language-space coordinate system so:
+   - in SFT, the student's hidden states can be supervised by GT text via a normal CE loss on your projected logits;
+   - in OPD, the student's hidden states can be supervised by Teacher_R / Teacher_P logits via KL on your projected logits;
+   - at inference time, your projected `argmax` token sequence per block tells the state machine whether the next block should be an observe (perception) block or a `</think>` (finish) signal.
+
+Implementation note (informational only)
+- Concretely you live as a `torch.nn.Linear(hidden_dim, vocab_size, bias=False)` whose weights are deep-copied from `student.lm_head` at the start of training and then `requires_grad_(False)`.
+- This text file is loaded at training-script start-up purely as documentation; nothing here changes your numerical behaviour. It exists so a human reader can understand which role this frozen module plays in the architecture.

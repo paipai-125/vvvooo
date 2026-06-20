@@ -1,0 +1,223 @@
+_wandb:
+    value:
+        cli_version: 0.27.0
+        e:
+            y2aek44mu0ubpx76hxup7aw9aeuc9li6:
+                args:
+                    - --train_jsonl
+                    - /mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/video_opd_data/outputs/stage1_sft/stage1_sft_template_all.jsonl
+                    - --output_dir
+                    - /mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/video_opd_data/outputs/checkpoints/stage1_opd
+                    - --student_ckpt
+                    - /mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/video_opd_data/outputs/checkpoints/stage1_sft_v5_latent/checkpoint-7500
+                    - --teacher_r_ckpt
+                    - /mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/video_opd_data/outputs/checkpoints/stage1_sft_teacher_r/final
+                    - --teacher_p_ckpt
+                    - /mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/video_opd_data/outputs/checkpoints/stage1_sft_teacher_p/final
+                    - --num_train_epochs
+                    - "10"
+                    - --gradient_accumulation_steps
+                    - "1"
+                    - --student_lr
+                    - "5e-6"
+                    - --weight_decay
+                    - "0.01"
+                    - --warmup_ratio
+                    - "0.03"
+                    - --max_length
+                    - "32768"
+                    - --max_frames
+                    - "64"
+                    - --fps
+                    - "1.0"
+                    - --video_max_pixels
+                    - "0"
+                    - --logging_steps
+                    - "10"
+                    - --save_steps
+                    - "500"
+                    - --save_total_limit
+                    - "3"
+                    - --num_workers
+                    - "2"
+                    - --max_seg_len
+                    - "256"
+                    - --max_latent_steps
+                    - "32"
+                    - --max_decode_len
+                    - "256"
+                    - --lambda_kl
+                    - "1.0"
+                    - --lambda_ans
+                    - "1.0"
+                    - --lambda_aux
+                    - "0.1"
+                    - --lambda_think_end
+                    - "1.0"
+                    - --temperature
+                    - "2.0"
+                    - --teacher_r_max_length
+                    - "8192"
+                    - --teacher_p_max_length
+                    - "32768"
+                    - --bf16
+                    - --max_samples
+                    - "10"
+                    - --wandb_project
+                    - video-opd-opd
+                    - --wandb_run_name
+                    - opd-overfit
+                cpu_count: 192
+                cpu_count_logical: 384
+                cudaVersion: "12.4"
+                disk:
+                    /:
+                        total: "12800361496576"
+                        used: "3675799572480"
+                email: 2482312879@qq.com
+                executable: /mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/root/miniconda3/envs/video_opd/bin/python3.11
+                git:
+                    commit: abe9f1530a64e709629c52b1906a9efb62405c57
+                    remote: git@git.woa.com:sleepfeng/video_opd_code.git
+                gpu: NVIDIA H20
+                gpu_count: 8
+                gpu_nvidia:
+                    - architecture: Hopper
+                      cudaCores: 9984
+                      memoryTotal: "102625181696"
+                      name: NVIDIA H20
+                      uuid: GPU-816d085f-f672-9a9d-f762-ee60944ca7ff
+                    - architecture: Hopper
+                      cudaCores: 9984
+                      memoryTotal: "102625181696"
+                      name: NVIDIA H20
+                      uuid: GPU-0580bb55-64f0-c7ec-03e5-84f236161448
+                    - architecture: Hopper
+                      cudaCores: 9984
+                      memoryTotal: "102625181696"
+                      name: NVIDIA H20
+                      uuid: GPU-f3b5e5ae-3863-bb9c-c021-1e24b29dac9d
+                    - architecture: Hopper
+                      cudaCores: 9984
+                      memoryTotal: "102625181696"
+                      name: NVIDIA H20
+                      uuid: GPU-7b03ac3e-5a44-9000-1228-3acb73d1ceb3
+                    - architecture: Hopper
+                      cudaCores: 9984
+                      memoryTotal: "102625181696"
+                      name: NVIDIA H20
+                      uuid: GPU-b684ee1c-9882-9242-f4da-3585ee85af95
+                    - architecture: Hopper
+                      cudaCores: 9984
+                      memoryTotal: "102625181696"
+                      name: NVIDIA H20
+                      uuid: GPU-dcd93f79-64b2-0a6c-8f7b-55610969b9fc
+                    - architecture: Hopper
+                      cudaCores: 9984
+                      memoryTotal: "102625181696"
+                      name: NVIDIA H20
+                      uuid: GPU-e7cbaaef-35c0-7dbc-bbea-35cba1382a39
+                    - architecture: Hopper
+                      cudaCores: 9984
+                      memoryTotal: "102625181696"
+                      name: NVIDIA H20
+                      uuid: GPU-05f49125-c1e2-28c7-b85f-9f3193b1f2b4
+                host: TENCENT64.site
+                memory:
+                    total: "2432295919616"
+                os: Linux-5.4.241-1-tlinux4-0017.7-x86_64-with-glibc2.28
+                program: -m training.stage1_opd
+                python: CPython 3.11.15
+                root: /mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/video_opd_code
+                startedAt: "2026-06-11T01:44:53.493588Z"
+                writerId: y2aek44mu0ubpx76hxup7aw9aeuc9li6
+        m: []
+        python_version: 3.11.15
+        t:
+            "1":
+                - 1
+            "2":
+                - 1
+                - 5
+                - 11
+                - 41
+                - 49
+                - 53
+                - 71
+            "3":
+                - 13
+                - 16
+            "4": 3.11.15
+            "5": 0.27.0
+            "12": 0.27.0
+            "13": linux-x86_64
+bf16:
+    value: true
+fps:
+    value: 1
+gradient_accumulation_steps:
+    value: 1
+lambda_ans:
+    value: 1
+lambda_aux:
+    value: 0.1
+lambda_kl:
+    value: 1
+lambda_think_end:
+    value: 1
+logging_steps:
+    value: 10
+max_decode_len:
+    value: 256
+max_frames:
+    value: 64
+max_latent_steps:
+    value: 32
+max_length:
+    value: 32768
+max_samples:
+    value: 10
+max_seg_len:
+    value: 256
+model_path:
+    value: ""
+num_train_epochs:
+    value: 10
+num_workers:
+    value: 2
+output_dir:
+    value: /mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/video_opd_data/outputs/checkpoints/stage1_opd
+save_steps:
+    value: 500
+save_total_limit:
+    value: 3
+seed:
+    value: 42
+student_ckpt:
+    value: /mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/video_opd_data/outputs/checkpoints/stage1_sft_v5_latent/checkpoint-7500
+student_lr:
+    value: 5e-06
+teacher_p_ckpt:
+    value: /mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/video_opd_data/outputs/checkpoints/stage1_sft_teacher_p/final
+teacher_p_max_length:
+    value: 32768
+teacher_r_ckpt:
+    value: /mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/video_opd_data/outputs/checkpoints/stage1_sft_teacher_r/final
+teacher_r_max_length:
+    value: 8192
+temperature:
+    value: 2
+train_jsonl:
+    value: /mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/video_opd_data/outputs/stage1_sft/stage1_sft_template_all.jsonl
+video_max_pixels:
+    value: 0
+wandb_mode:
+    value: online
+wandb_project:
+    value: video-opd-opd
+wandb_run_name:
+    value: opd-overfit
+warmup_ratio:
+    value: 0.03
+weight_decay:
+    value: 0.01

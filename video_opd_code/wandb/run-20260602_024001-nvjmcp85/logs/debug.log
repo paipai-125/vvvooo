@@ -1,0 +1,21 @@
+2026-06-02 02:40:01,634 INFO    MainThread:1466761 [wandb_setup.py:_flush():81] Current SDK version is 0.27.0
+2026-06-02 02:40:01,634 INFO    MainThread:1466761 [wandb_setup.py:_flush():81] Configure stats pid to 1466761
+2026-06-02 02:40:01,634 INFO    MainThread:1466761 [wandb_setup.py:_flush():81] Loading settings from environment variables
+2026-06-02 02:40:01,634 INFO    MainThread:1466761 [wandb_init.py:setup_run_log_directory():723] Logging user logs to /mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/video_opd_code/wandb/run-20260602_024001-nvjmcp85/logs/debug.log
+2026-06-02 02:40:01,635 INFO    MainThread:1466761 [wandb_init.py:setup_run_log_directory():724] Logging internal logs to /mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/video_opd_code/wandb/run-20260602_024001-nvjmcp85/logs/debug-internal.log
+2026-06-02 02:40:01,635 INFO    MainThread:1466761 [wandb_init.py:init():851] calling init triggers
+2026-06-02 02:40:01,635 INFO    MainThread:1466761 [wandb_init.py:init():856] wandb.init called with sweep_config: {}
+config: {'train_jsonl': '/mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/video_opd_data/outputs/stage1_sft/stage1_sft_template_all.jsonl', 'output_dir': '/mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/video_opd_data/outputs/checkpoints/stage1_sft_v5_latent', 'model_path': '/mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/video_opd_data/Qwen3-VL-4B-Instruct', 'num_train_epochs': 50, 'per_device_batch_size': 1, 'gradient_accumulation_steps': 2, 'student_lr': 2e-05, 'translator_lr': 2e-05, 'weight_decay': 0.01, 'warmup_ratio': 0.03, 'max_length': 32768, 'max_frames': 64, 'fps': 1.0, 'seed': 42, 'logging_steps': 1, 'save_steps': 9999, 'save_total_limit': 3, 'bf16': True, 'gradient_checkpointing': True, 'deepspeed': 'scripts/ds_zero2.json', 'num_workers': 2, 'resume_from': None, 'max_samples': 10, 'max_seg_len': 256, 'max_latent_steps': 32, 'lambda_trans': 1.0, 'lambda_ans': 1.0, 'lambda_aux': 1.0, 'lambda_think_end': 1.0, 'wandb_project': 'video-opd-latent', 'wandb_run_name': 'overfit-10samples-50epochs', 'wandb_mode': 'online', '_wandb': {}}
+2026-06-02 02:40:01,635 INFO    MainThread:1466761 [wandb_init.py:init():899] starting backend
+2026-06-02 02:40:05,122 INFO    MainThread:1466761 [wandb_init.py:init():914] sending inform_init request
+2026-06-02 02:40:05,952 INFO    MainThread:1466761 [wandb_init.py:init():919] backend started and connected
+2026-06-02 02:40:05,954 INFO    MainThread:1466761 [wandb_init.py:init():989] updated telemetry
+2026-06-02 02:40:05,989 INFO    MainThread:1466761 [wandb_init.py:init():1012] communicating run to backend with 90.0 second timeout
+2026-06-02 02:40:06,506 INFO    MainThread:1466761 [wandb_init.py:init():1057] starting run threads in backend
+2026-06-02 02:40:07,163 INFO    MainThread:1466761 [wandb_run.py:_console_start():2509] atexit reg
+2026-06-02 02:40:07,163 INFO    MainThread:1466761 [wandb_run.py:_redirect():2359] redirect: wrap_raw
+2026-06-02 02:40:07,163 INFO    MainThread:1466761 [wandb_run.py:_redirect():2428] Wrapping output streams.
+2026-06-02 02:40:07,163 INFO    MainThread:1466761 [wandb_run.py:_redirect():2451] Redirects installed.
+2026-06-02 02:40:07,185 INFO    MainThread:1466761 [wandb_init.py:init():1095] run started, returning control to user process
+2026-06-02 02:47:05,607 INFO    wandb-AsyncioManager-main:1466761 [service_client.py:_forward_responses():122] Reached EOF.
+2026-06-02 02:47:05,608 INFO    wandb-AsyncioManager-main:1466761 [mailbox.py:close():154] Closing mailbox, abandoning 1 handles.
