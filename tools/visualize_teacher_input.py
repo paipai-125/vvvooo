@@ -392,12 +392,14 @@ def vis_a5_tracking_overlay(sample: dict, out_dir: Path) -> bool:
     student_frame = _add_text_overlay(first_frame, f"Q: {sample['question']}")
     _save_rgb_as_jpg(student_frame, out_dir / "student_input.jpg")
 
+    print("真实调用tracking_overlay_pipeline")
     # 真实调用 pipeline
     result = tracking_overlay_pipeline(
         video_path=video_path,
         target=target,
         time=time_str,
     )
+    print(result)
 
     # 复制产物（mp4 视频 + 截取中间帧快照）
     _copy_or_snapshot(result["video"], out_dir)

@@ -9,7 +9,7 @@ cd "$(dirname "$0")/.."
 ROLE="${1:-teacher_r}"
 export WANDB_API_KEY="${WANDB_API_KEY:-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}"
 WANDB_PROJECT="${WANDB_PROJECT:-video-opd-teacher-sft}"
-DATA_ROOT="/mnt/gemininjceph3/geminicephfs/mmsearch-luban-universal/group_2/user_sleepfeng/video_opd_data"
+DATA_ROOT="/fs0/AI/bz2416506/scow/ai/appData/muxing-vscode-20260620-061046/video_opd/video_opd_data_mini"
 SFT_DIR="${DATA_ROOT}/outputs/stage1_sft"
 STUDENT_JSONL="${SFT_DIR}/stage1_sft_template_all.jsonl"
 CKPT_ROOT="${DATA_ROOT}/outputs/checkpoints"
@@ -41,14 +41,17 @@ train_teacher_r() {
 train_teacher_p() {
     local JSONL="${SFT_DIR}/stage1_sft_teacher_p.jsonl"
     local OUTDIR="${CKPT_ROOT}/stage1_sft_teacher_p"
+    local MAX_LENGTH="${MAX_LENGTH:-32768}"
+    local MAX_FRAMES="${MAX_FRAMES:-64}"
+    local FPS="${FPS:-1.0}"
     echo "[1/3] 生成 Teacher_P 数据..."
     python -m data_preparation.prepare_teacher_sft_data --role teacher_p --input "${STUDENT_JSONL}" --output_dir "${SFT_DIR}"
     echo "  -> ${JSONL} ($(wc -l < "${JSONL}") 条)"
-    echo "[2/3] 训练 Teacher_P (视频, max_length=32768)..."
+    echo "[2/3] 训练 Teacher_P (视频, max_length=${MAX_LENGTH}, max_frames=${MAX_FRAMES})..."
     torchrun --nproc_per_node="${NPROC}" -m training.teacher_sft \
         --role teacher_p --train_jsonl "${JSONL}" --output_dir "${OUTDIR}" \
-        --epochs "${EPOCHS}" --lr "${LR}" --max_length 32768 \
-        --max_frames 64 --fps 1.0 \
+        --epochs "${EPOCHS}" --lr "${LR}" --max_length "${MAX_LENGTH}" \
+        --max_frames "${MAX_FRAMES}" --fps "${FPS}" \
         --grad_accum "${GRAD_ACCUM}" --save_steps "${SAVE_STEPS}" \
         --max_samples "${MAX_SAMPLES}" --gradient_checkpointing \
         --wandb_project "${WANDB_PROJECT}" --wandb_run_name "teacher_p-sft"

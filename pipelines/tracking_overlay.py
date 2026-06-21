@@ -88,14 +88,17 @@ def tracking_overlay_pipeline(
         # 1. 裁切目标段（统一 fps=8）
         clip_path = tmp_root / "clip.mp4"
         save_video_clip(str(src), str(clip_path), start_sec, end_sec, target_fps=8.0)
+        
         if not clip_path.exists():
             raise RuntimeError(f"裁切失败: {clip_path}")
+        print("裁剪成功")
 
         # 2. 抽帧为 (T,H,W,3) RGB ndarray
         frames_rgb = _extract_frames_to_array(clip_path, max_frames=64)
         T, H, W, _ = frames_rgb.shape
         if T == 0:
             raise RuntimeError("未抽取到任何帧")
+        print("抽帧成功")
 
         # 3. SAM 3 视频文本 prompt 跟踪
         import torch
@@ -103,7 +106,9 @@ def tracking_overlay_pipeline(
         device = next(model.parameters()).device
         dtype = next(model.parameters()).dtype
 
+        # 直接使用原始文本作为提示
         text_prompt = target.strip()
+        print(f"[tracking_overlay] 使用文本提示: '{text_prompt}'")
 
         # init_video_session 接受 list[np.ndarray] 或 np.ndarray (T,H,W,3)
         inference_session = processor.init_video_session(
@@ -113,6 +118,8 @@ def tracking_overlay_pipeline(
             video_storage_device="cpu",
             dtype=dtype,
         )
+        
+        # 添加文本提示
         inference_session = processor.add_text_prompt(
             inference_session=inference_session,
             text=text_prompt,
@@ -121,24 +128,45 @@ def tracking_overlay_pipeline(
         # 收集每帧的实例 mask（按 obj_id 聚合）
         # outputs["object_ids"]: (N,)  outputs["masks"]: (N, H, W) bool/0-1
         per_frame_results = {}
+        frame_idx_to_obj_ids = {}  # 调试用
+        
         with torch.no_grad():
             for model_outputs in model.propagate_in_video_iterator(
                 inference_session=inference_session, max_frame_num_to_track=T,
+                show_progress_bar=True,
             ):
                 processed = processor.postprocess_outputs(inference_session, model_outputs)
                 fidx = int(model_outputs.frame_idx)
                 # masks: tensor (N, H, W)，object_ids: tensor (N,)
                 masks = processed["masks"]
                 obj_ids = processed["object_ids"]
+                
                 if hasattr(masks, "cpu"):
                     masks = masks.detach().cpu().numpy()
                 if hasattr(obj_ids, "cpu"):
                     obj_ids = obj_ids.detach().cpu().numpy()
-                per_frame_results[fidx] = (np.asarray(obj_ids).astype(int),
-                                           np.asarray(masks).astype(np.uint8))
+                
+                frame_idx_to_obj_ids[fidx] = obj_ids
+                
+                if len(obj_ids) > 0:
+                    per_frame_results[fidx] = (np.asarray(obj_ids).astype(int),
+                                               np.asarray(masks).astype(np.uint8))
 
+        # 调试输出
+        non_empty_frames = [fidx for fidx, ids in frame_idx_to_obj_ids.items() if len(ids) > 0]
+        print(f"[tracking_overlay] 检测到对象的帧: {non_empty_frames}")
+        print(f"[tracking_overlay] 总共 {len(per_frame_results)} 帧有检测结果")
+        
         if not per_frame_results:
-            raise RuntimeError(f"SAM3 未跟踪到任何 '{target}' 实例")
+            # 尝试用更通用的提示
+            print(f"[tracking_overlay] 警告: 未检测到 '{target}'，尝试用更通用的提示...")
+            # 可以在这里添加备选提示逻辑
+            raise RuntimeError(
+                f"SAM3 未跟踪到任何 '{target}' 实例。\n"
+                f"候选提示已尝试: {candidate_prompts}\n"
+                f"建议: 1) 检查视频中是否有该对象; 2) 尝试更通用的提示（如 'person'、'object'）; "
+                f"3) 检查 SAM3 模型是否正确加载。"
+            )
 
         # 4. 写出可视化视频
         fourcc = cv2.VideoWriter_fourcc(*"mp4v")
@@ -161,10 +189,12 @@ def tracking_overlay_pipeline(
                     if not m.any():
                         continue
                     color = _PALETTE_BGR[int(oid) % len(_PALETTE_BGR)]
-                    overlay = img_bgr.copy()
-                    overlay[m > 0] = (0.4 * overlay[m > 0]
-                                      + 0.6 * np.array(color)).astype(np.uint8)
-                    img_bgr = overlay
+                    # 创建彩色mask
+                    mask_bool = m > 0
+                    mask_color = np.zeros_like(img_bgr)
+                    mask_color[mask_bool] = color
+                    # 混合原图和mask
+                    img_bgr = cv2.addWeighted(img_bgr, 0.6, mask_color, 0.4, 0)
                     ys, xs = np.where(m > 0)
                     if xs.size > 0 and ys.size > 0:
                         x1, y1 = int(xs.min()), int(ys.min())

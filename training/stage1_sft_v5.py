@@ -840,10 +840,18 @@ def main():
     # 单机八卡 = 4 个并行训练进程，每个进程用 2 张 GPU
     # =========================================================================
     use_deepspeed = args.deepspeed is not None
-    student_device = torch.device(f"cuda:{local_rank * 2}") if torch.cuda.is_available() else torch.device("cpu")
-    translator_device = torch.device(f"cuda:{local_rank * 2 + 1}") if torch.cuda.is_available() else torch.device("cpu")
+    # 自动检测 GPU 数量，单卡时所有模型放同一设备
+    gpu_count = torch.cuda.device_count() if torch.cuda.is_available() else 0
+    if gpu_count <= 1:
+        # 单卡模式：Student 和 Translator 都放 cuda:0
+        student_device = torch.device("cuda:0") if torch.cuda.is_available() else torch.device("cpu")
+        translator_device = student_device
+    else:
+        # 多卡模式：分卡
+        student_device = torch.device(f"cuda:{local_rank * 2}") if torch.cuda.is_available() else torch.device("cpu")
+        translator_device = torch.device(f"cuda:{local_rank * 2 + 1}") if torch.cuda.is_available() else torch.device("cpu")
     device = student_device  # train_one_sample 中的 device 指 Student 所在卡
-    rank0_print(f"[Init] 设备分配: Student → {student_device}, Translator → {translator_device}")
+    rank0_print(f"[Init] GPU数量: {gpu_count}, 设备分配: Student → {student_device}, Translator → {translator_device}")
 
     if use_deepspeed:
         import deepspeed
